@@ -15,6 +15,7 @@ class MissingTab extends StatelessWidget {
         imagePath: 'assets/images/pexels-photo-583847.jpeg',
         name: 'هاتف محمول',
       ),
+      const SizedBox(height: 15),
       MissingItem(
         onTap: () {},
         commentsCount: 12,
@@ -24,6 +25,7 @@ class MissingTab extends StatelessWidget {
         imagePath: 'assets/images/pexels-photo-1031460j.jpeg',
         name: 'هاتف محمول',
       ),
+      const SizedBox(height: 15),
       MissingItem(
         onTap: () {},
         commentsCount: 12,
@@ -34,16 +36,25 @@ class MissingTab extends StatelessWidget {
         name: 'هاتف محمول',
       ),
     ];
-    return ListView.separated(
-      separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-      itemBuilder: (cxt, index) => listViewItems[index],
-      itemCount: listViewItems.length,
-      padding: const EdgeInsets.only(
-        left: 15,
-        right: 15,
-        top: 15,
-        bottom: 85,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 15,
+      ),
+      child: Column(
+        children: listViewItems,
       ),
     );
+    // return ListView.separated(
+    //   separatorBuilder: (cxt, index) => const SizedBox(height: 15),
+    //   itemBuilder: (cxt, index) => listViewItems[index],
+    //   itemCount: listViewItems.length,
+    //   padding: const EdgeInsets.only(
+    //     left: 15,
+    //     right: 15,
+    //     top: 15,
+    //     bottom: 85,
+    //   ),
+    // );
   }
 }

@@ -100,7 +100,7 @@ class MissingItem extends StatelessWidget {
                           icon: Icon(FontAwesomeIcons.commentDots),
                           onPressed: () {},
                         ),
-                        Text('($commentsCount)')
+                        Text('($commentsCount)'),
                       ],
                     ),
                   ],
