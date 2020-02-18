@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/missing_item.dart';
+import '../../widgets/found_tab.dart';
+import '../../widgets/missing_tab.dart';
 import '../../widgets/categories_carousel.dart';
 
 class HomeTab extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: make this a CustomScrollView with SliverAppBar
     return DefaultTabController(
       length: 2,
       child: Column(
@@ -38,40 +40,13 @@ class HomeTab extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: <Widget>[
-                FoundTab(),
                 MissingTab(),
+                FoundTab(),
               ],
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class FoundTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      
-    );
-  }
-}
-
-class MissingTab extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final List<Widget> listViewItems = [
-      MissingItem(
-        commentsCount: 12,
-        date: '1441/9/6',
-        description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
-        imagePath: 'assets/images/pexels-photo-583847.jpeg',
-        name: 'هاتف محمول',
-      ),
-    ];
-    return ListView.builder(
-      itemBuilder: (cxt, index) => listViewItems[index],
     );
   }
 }

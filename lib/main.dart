@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import './screens/technical_support.dart';
+import './screens/add_post.dart';
+import './screens/favourits.dart';
+import './screens/edit_profile.dart';
 import './screens/main_screen.dart';
 import './screens/register.dart';
 import './screens/verification_code.dart';
@@ -37,6 +41,7 @@ class Raneem extends StatelessWidget {
         ],
         locale: data.locale,
         theme: ThemeData(
+          // canvasColor: Colors.transparent,
           textTheme: TextTheme(
             headline: TextStyle(color: primarColor),
           ),
@@ -55,6 +60,10 @@ class Raneem extends StatelessWidget {
           'register': (cxt) => Register(),
           'verification-code': (cxt) => VerificationCode(),
           'main': (cxt) => MainScreen(),
+          'edit-profile': (cxt) => EditProfile(),
+          'add-post': (cxt) => AddPost(),
+          'favourites': (cxt) => Favourites(),
+          'tech-support': (cxt) => TechnicalSupport(),
         },
       ),
     );

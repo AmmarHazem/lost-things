@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../widgets/my_bottom_navbar.dart';
+import '../widgets/my_drawer.dart';
 import '../widgets/my_appbar.dart';
-import 'tabs/home.dart';
+import 'main_tabs/home.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -10,17 +12,36 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+  void _drawerOnTap(int index){
+    if(index == 0) {
+      Navigator.pushNamed(context, 'edit-profile');
+    }
+    else if(index == 1) {
+      Navigator.pushNamed(context, 'add-post');
+    }
+    else if(index == 2) {
+      Navigator.pushNamed(context, 'favourites');
+    }
+    else if(index == 3) {
+      Navigator.pushNamed(context, 'tech-support');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(onTap: _drawerOnTap),
       appBar: MyAppBar(
         height: 120,
         rightWidget: Row(
           children: <Widget>[
             const SizedBox(width: 10),
-            IconButton(
-              icon: Image.asset('assets/images/list (1).png'),
-              onPressed: () {},
+            Builder(
+              builder: (cxt) => IconButton(
+                icon: Image.asset('assets/images/list (1).png'),
+                onPressed: () => Scaffold.of(cxt).openDrawer(),
+              ),
             ),
             const SizedBox(width: 10),
             IconButton(
@@ -91,7 +112,20 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
       body: SafeArea(
-        child: HomeTab(),
+        child: Stack(
+          children: <Widget>[
+            HomeTab(),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: MyBottomNavbar(
+                onTap: (index) {},
+                currentIndex: 1,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

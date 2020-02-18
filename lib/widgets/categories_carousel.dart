@@ -77,30 +77,40 @@ class CategoriesSliderItem extends StatelessWidget {
   final Widget icon;
   final String name;
   final Function onTap;
+  final double horizontalMargin;
 
   const CategoriesSliderItem({
     Key key,
     @required this.icon,
     @required this.name,
     @required this.onTap,
+    this.horizontalMargin: 10,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      margin: EdgeInsets.symmetric(horizontal: horizontalMargin),
       child: Column(
         children: <Widget>[
-          FlatButton(
-            onPressed: onTap,
-            child: icon,
-            color: grey2,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: 80,
             ),
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-              vertical: 10,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: FlatButton(
+                onPressed: onTap,
+                child: icon,
+                color: Colors.grey[350],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 10,
+                ),
+              ),
             ),
           ),
           const SizedBox(height: 5),
