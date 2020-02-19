@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:raneem/styles.dart';
 
-import '../../widgets/found_tab.dart';
-import '../../widgets/missing_tab.dart';
+import '../../styles.dart';
+import '../../widgets/missing_and_found_tabs_view.dart';
 import '../../widgets/categories_carousel.dart';
 
 class HomeTab extends StatelessWidget {
@@ -13,7 +12,6 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: make this a CustomScrollView with SliverAppBar
     return DefaultTabController(
       length: 2,
       child: LayoutBuilder(
@@ -24,6 +22,7 @@ class HomeTab extends StatelessWidget {
               pinned: true,
               expandedHeight: 310,
               backgroundColor: grey1,
+              titleSpacing: 15,
               title: Row(
                 children: <Widget>[
                   const SizedBox(width: 10),
@@ -135,53 +134,12 @@ class HomeTab extends StatelessWidget {
             SliverToBoxAdapter(
               child: SizedBox(
                 height: constraints.maxHeight,
-                child: TabBarView(
-                  children: <Widget>[
-                    MissingTab(),
-                    FoundTab(),
-                  ],
-                ),
+                child: MissingAndFoundTabsView(),
               ),
             ),
           ],
         ),
       ),
     );
-    // return DefaultTabController(
-    //   length: 2,
-    //   child: Column(
-    //     children: <Widget>[
-    //       const SizedBox(height: 20),
-    //       CategoriesSlider(),
-    //       TabBar(
-    //         indicatorSize: TabBarIndicatorSize.label,
-    //         tabs: <Widget>[
-    //           Tab(
-    //             child: Text(
-    //               'المفقودات',
-    //               style:
-    //                   TextStyle(color: Theme.of(context).textTheme.body1.color),
-    //             ),
-    //           ),
-    //           Tab(
-    //             child: Text(
-    //               'تم العثور عليها',
-    //               style:
-    //                   TextStyle(color: Theme.of(context).textTheme.body1.color),
-    //             ),
-    //           ),
-    //         ],
-    //       ),
-    //       Expanded(
-    //         child: TabBarView(
-    //           children: <Widget>[
-    //             MissingTab(),
-    //             FoundTab(),
-    //           ],
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }

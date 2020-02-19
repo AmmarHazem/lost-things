@@ -1,65 +1,69 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import '../styles.dart';
-
 class CategoriesSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageHeight = 50.0;
+    final List items = <Widget>[
+      CategoriesSliderItem(
+        icon: Image.asset(
+          'assets/images/9876 (6).png',
+          height: imageHeight,
+        ),
+        name: 'أغراض شخصية',
+        onTap: () {},
+      ),
+      CategoriesSliderItem(
+        icon: Image.asset(
+          'assets/images/tv.png',
+          height: imageHeight,
+        ),
+        name: 'إلكترونيات',
+        onTap: () {},
+      ),
+      CategoriesSliderItem(
+        icon: Image.asset(
+          'assets/images/shirt.png',
+          height: imageHeight,
+        ),
+        name: 'ملابس',
+        onTap: () {},
+      ),
+      CategoriesSliderItem(
+        icon: Image.asset(
+          'assets/images/car.png',
+          height: imageHeight,
+        ),
+        name: 'مواصلات',
+        onTap: () {},
+      ),
+      CategoriesSliderItem(
+        icon: Image.asset(
+          'assets/images/tv.png',
+          height: imageHeight,
+        ),
+        name: 'إلكترونيات',
+        onTap: () {},
+      ),
+    ];
     final carousel = CarouselSlider(
       initialPage: 3,
       height: 110,
-      enableInfiniteScroll: false,
+      enableInfiniteScroll: true,
       viewportFraction: 0.25,
-      items: <Widget>[
-        CategoriesSliderItem(
-          icon: Image.asset(
-            'assets/images/9876 (6).png',
-            height: imageHeight,
-          ),
-          name: 'أغراض شخصية',
-          onTap: () {},
-        ),
-        CategoriesSliderItem(
-          icon: Image.asset(
-            'assets/images/tv.png',
-            height: imageHeight,
-          ),
-          name: 'إلكترونيات',
-          onTap: () {},
-        ),
-        CategoriesSliderItem(
-          icon: Image.asset(
-            'assets/images/shirt.png',
-            height: imageHeight,
-          ),
-          name: 'ملابس',
-          onTap: () {},
-        ),
-        CategoriesSliderItem(
-          icon: Image.asset(
-            'assets/images/car.png',
-            height: imageHeight,
-          ),
-          name: 'مواصلات',
-          onTap: () {},
-        ),
-      ],
+      items: items,
     );
     return Row(
       children: <Widget>[
-        Expanded(
-          child: carousel,
-        ),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: Icon(Icons.chevron_right),
+              icon: Icon(Icons.chevron_left),
               onPressed: () {
                 carousel.animateToPage(
-                  0,
+                  items.length - 1,
                   duration: Duration(milliseconds: 300),
                   curve: Curves.easeOutCirc,
                 );
@@ -67,6 +71,9 @@ class CategoriesSlider extends StatelessWidget {
             ),
             const SizedBox(height: 40),
           ],
+        ),
+        Expanded(
+          child: carousel,
         ),
       ],
     );

@@ -3,12 +3,12 @@ import 'package:raneem/styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Login extends StatelessWidget {
-  void _showForgotPasswordDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (cxt) => ForgotPasswordModal(),
-    );
-  }
+  // void _showForgotPasswordDialog(BuildContext context) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (cxt) => ForgotPasswordModal(),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -106,8 +106,7 @@ class Login extends StatelessWidget {
                               FlatButton(
                                 padding: const EdgeInsets.all(0),
                                 child: Text('هل نسيت كلمة المرور ؟'),
-                                onPressed: () =>
-                                    _showForgotPasswordDialog(context),
+                                onPressed: () {},
                               ),
                             ],
                           ),

@@ -12,6 +12,7 @@ class MyBottomNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: make the button go to their screens
     final borderRadius = 40.0;
     return Container(
       decoration: BoxDecoration(

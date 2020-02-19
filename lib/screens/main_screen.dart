@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/my_drawer.dart';
-import '../widgets/my_appbar.dart';
 import 'main_tabs/home.dart';
 
 class MainScreen extends StatefulWidget {
@@ -25,6 +23,12 @@ class _MainScreenState extends State<MainScreen> {
     }
     else if(index == 3) {
       Navigator.pushNamed(context, 'tech-support');
+    }
+    else if(index == 4) {
+      Navigator.pushNamed(context, 'terms-and-conditions');
+    }
+    else if(index == 5) {
+      Navigator.pushNamed(context, 'settings');
     }
   }
 

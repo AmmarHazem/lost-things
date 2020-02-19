@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/report_messing_page.dart';
+import 'report_messing_page.dart';
 import '../styles.dart';
+import 'my_alert_dialog.dart';
 
 class ReportFoundPage extends StatefulWidget {
   @override
@@ -16,7 +17,13 @@ class _ReportFoundPageState extends State<ReportFoundPage> {
   void _showPickTypeDialog() {
     showDialog(
       context: context,
-      builder: (cxt) => SelectTypeDialog(onSelectType: _setSelectedType),
+      builder: (cxt) => MyAlertDialog(
+        content: SelectTypeDialogContent(onSelectType: _setSelectedType),
+        title: Text(
+          'أختر نوع',
+          style: Theme.of(context).textTheme.button,
+        ),
+      ),
     );
   }
 

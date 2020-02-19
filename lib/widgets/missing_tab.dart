@@ -7,7 +7,13 @@ class MissingTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> listViewItems = [
       MissingItem(
-        onTap: () {},
+        onTap: () => Navigator.pushNamed(
+          context,
+          'missing-post-details',
+          arguments: {
+            'imagePath': 'assets/images/pexels-photo-583847.jpeg',
+          },
+        ),
         commentsCount: 12,
         date: '1441/9/6',
         description:

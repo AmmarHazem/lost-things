@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 final textDecoration = InputDecoration(
   contentPadding: const EdgeInsets.all(10),
@@ -32,8 +31,9 @@ final textDecoration = InputDecoration(
 class VerificationCode extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO: this will always be an email
     final Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
-    final bool sentToEmail = args['sentToEmail'];
+    final String email = args['email'];
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -46,7 +46,7 @@ class VerificationCode extends StatelessWidget {
                 children: <Widget>[
                   const SizedBox(height: 60),
                   Icon(
-                    sentToEmail ? Icons.email : FontAwesomeIcons.mobileAlt,
+                    Icons.email,
                     size: 60,
                     color: Theme.of(context).accentColor,
                   ),
@@ -59,7 +59,7 @@ class VerificationCode extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   Text(
-                    args['emailOrPhone'],
+                    email,
                     style: Theme.of(context).textTheme.subhead.copyWith(
                           color: Theme.of(context).primaryColor,
                         ),

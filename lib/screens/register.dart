@@ -11,6 +11,7 @@ class _RegisterState extends State<Register> {
   bool _enterEmail = true;
   bool _showEmalPhoneNumberToggleBtn = true;
   final _emailOrPhoneNumber = FocusNode();
+  final _emailOrPhoneNumberController = TextEditingController();
 
   @override
   void initState() {
@@ -158,7 +159,10 @@ class _RegisterState extends State<Register> {
                   Stack(
                     children: <Widget>[
                       TextFormField(
-                        keyboardType: _enterEmail ? TextInputType.emailAddress : TextInputType.number,
+                        controller: _emailOrPhoneNumberController,
+                        keyboardType: _enterEmail
+                            ? TextInputType.emailAddress
+                            : TextInputType.number,
                         focusNode: _emailOrPhoneNumber,
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
@@ -206,6 +210,7 @@ class _RegisterState extends State<Register> {
                                 onPressed: () {
                                   setState(() {
                                     _enterEmail = !_enterEmail;
+                                    _emailOrPhoneNumberController.text = '';
                                   });
                                 },
                                 child: Text(
@@ -233,7 +238,19 @@ class _RegisterState extends State<Register> {
                         horizontal: 30,
                       ),
                       child: Text('تسجيل الدخول'),
-                      onPressed: () {},
+                      onPressed: () {
+                        if (_enterEmail) {
+                          Navigator.pushNamed(
+                            context,
+                            'verification-code',
+                            arguments: {
+                              'email': _emailOrPhoneNumberController.text,
+                            },
+                          );
+                        } else {
+                          Navigator.pushReplacementNamed(context, 'main');
+                        }
+                      },
                       color: Theme.of(context).accentColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),

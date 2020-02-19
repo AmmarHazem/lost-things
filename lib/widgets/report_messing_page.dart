@@ -6,6 +6,7 @@ import 'package:dotted_border/dotted_border.dart';
 
 import '../styles.dart';
 import './categories_carousel.dart';
+import 'my_alert_dialog.dart';
 
 class ReportMissingPage extends StatefulWidget {
   @override
@@ -32,7 +33,13 @@ class _ReportMissingPageState extends State<ReportMissingPage> {
   void _showPickTypeDialog() {
     showDialog(
       context: context,
-      builder: (cxt) => SelectTypeDialog(onSelectType: _setSelectedType),
+      builder: (cxt) => MyAlertDialog(
+        content: SelectTypeDialogContent(onSelectType: _setSelectedType),
+        title: Text(
+          'أختر نوع',
+          style: Theme.of(context).textTheme.button,
+        ),
+      ),
     );
   }
 
@@ -248,10 +255,10 @@ class _ReportMissingPageState extends State<ReportMissingPage> {
   }
 }
 
-class SelectTypeDialog extends StatelessWidget {
+class SelectTypeDialogContent extends StatelessWidget {
   final Function onSelectType;
 
-  const SelectTypeDialog({
+  const SelectTypeDialogContent({
     Key key,
     @required this.onSelectType,
   }) : super(key: key);
@@ -259,182 +266,12 @@ class SelectTypeDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final imageHeight = 30.0;
-    return AlertDialog(
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: 10,
-        vertical: 10,
-      ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.close),
-            onPressed: () => Navigator.pop(context),
-            color: Theme.of(context).accentColor,
-          ),
-          Text(
-            'أختر نوع',
-            style: Theme.of(context).textTheme.button,
-          ),
-          const SizedBox(width: 40),
-        ],
-      ),
-      content: Column(
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/9876 (6).png',
-                    height: imageHeight,
-                  ),
-                  name: 'أغراض شخصية',
-                  onTap: () {
-                    onSelectType('أغراض شخصية');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/tv.png',
-                    height: imageHeight,
-                  ),
-                  name: 'إلكترونيات',
-                  onTap: () {
-                    onSelectType('إلكترونيات');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/shirt.png',
-                    height: imageHeight,
-                  ),
-                  name: 'ملابس',
-                  onTap: () {
-                    onSelectType('ملابس');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 15),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/9876 (6).png',
-                    height: imageHeight,
-                  ),
-                  name: 'أغراض شخصية',
-                  onTap: () {
-                    onSelectType('أغراض شخصية');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/tv.png',
-                    height: imageHeight,
-                  ),
-                  name: 'إلكترونيات',
-                  onTap: () {
-                    onSelectType('إلكترونيات');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/shirt.png',
-                    height: imageHeight,
-                  ),
-                  name: 'ملابس',
-                  onTap: () {
-                    onSelectType('ملابس');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 15),
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/9876 (6).png',
-                    height: imageHeight,
-                  ),
-                  name: 'أغراض شخصية',
-                  onTap: () {
-                    onSelectType('أغراض شخصية');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/tv.png',
-                    height: imageHeight,
-                  ),
-                  name: 'إلكترونيات',
-                  onTap: () {
-                    onSelectType('إلكترونيات');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: CategoriesSliderItem(
-                  horizontalMargin: 0,
-                  icon: Image.asset(
-                    'assets/images/shirt.png',
-                    height: imageHeight,
-                  ),
-                  name: 'ملابس',
-                  onTap: () {
-                    onSelectType('ملابس');
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CategoriesSliderItem(
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
                   'assets/images/9876 (6).png',
@@ -446,10 +283,156 @@ class SelectTypeDialog extends StatelessWidget {
                   Navigator.pop(context);
                 },
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/tv.png',
+                  height: imageHeight,
+                ),
+                name: 'إلكترونيات',
+                onTap: () {
+                  onSelectType('إلكترونيات');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/shirt.png',
+                  height: imageHeight,
+                ),
+                name: 'ملابس',
+                onTap: () {
+                  onSelectType('ملابس');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 15),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/9876 (6).png',
+                  height: imageHeight,
+                ),
+                name: 'أغراض شخصية',
+                onTap: () {
+                  onSelectType('أغراض شخصية');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/tv.png',
+                  height: imageHeight,
+                ),
+                name: 'إلكترونيات',
+                onTap: () {
+                  onSelectType('إلكترونيات');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/shirt.png',
+                  height: imageHeight,
+                ),
+                name: 'ملابس',
+                onTap: () {
+                  onSelectType('ملابس');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 15),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/9876 (6).png',
+                  height: imageHeight,
+                ),
+                name: 'أغراض شخصية',
+                onTap: () {
+                  onSelectType('أغراض شخصية');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/tv.png',
+                  height: imageHeight,
+                ),
+                name: 'إلكترونيات',
+                onTap: () {
+                  onSelectType('إلكترونيات');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            const SizedBox(width: 10),
+            Expanded(
+              child: CategoriesSliderItem(
+                horizontalMargin: 0,
+                icon: Image.asset(
+                  'assets/images/shirt.png',
+                  height: imageHeight,
+                ),
+                name: 'ملابس',
+                onTap: () {
+                  onSelectType('ملابس');
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 15),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CategoriesSliderItem(
+              horizontalMargin: 0,
+              icon: Image.asset(
+                'assets/images/9876 (6).png',
+                height: imageHeight,
+              ),
+              name: 'أغراض شخصية',
+              onTap: () {
+                onSelectType('أغراض شخصية');
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

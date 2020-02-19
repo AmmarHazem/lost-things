@@ -27,7 +27,7 @@ final textFieldDecoration = InputDecoration(
   focusedBorder: OutlineInputBorder(
     borderRadius: BorderRadius.circular(0),
     borderSide: BorderSide(
-      color: Colors.grey[350],
+      color: Colors.grey,
     ),
   ),
 );
