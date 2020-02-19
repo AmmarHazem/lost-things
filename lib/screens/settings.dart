@@ -4,9 +4,9 @@ import 'package:raneem/widgets/my_alert_dialog.dart';
 
 import '../styles.dart';
 import '../widgets/section_title.dart';
-import '../utils.dart';
 import '../widgets/my_appbar.dart';
 import '../widgets/my_bottom_navbar.dart';
+import '../utils.dart';
 
 class Settings extends StatefulWidget {
   @override

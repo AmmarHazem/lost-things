@@ -35,7 +35,7 @@ class HomeTab extends StatelessWidget {
                   const SizedBox(width: 10),
                   IconButton(
                     icon: Image.asset('assets/images/alarm (2).png'),
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushNamed(context, 'notifications'),
                   ),
                   Spacer(),
                   SizedBox(

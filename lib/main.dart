@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import './screens/notifications.dart';
+import './screens/found_post_details.dart';
 import './screens/missing_post_details.dart';
 import './screens/profile.dart';
 import './screens/blocked_accounts.dart';
@@ -74,6 +76,8 @@ class Raneem extends StatelessWidget {
           'blocked-accounts': (cxt) => BlockedAccounts(),
           'profile': (cxt) => Profile(),
           'missing-post-details': (cxt) => MissingPotDetails(),
+          'found-post-details': (cxt) => FoundPostDetails(),
+          'notifications': (cxt) => Notifications(),
         },
       ),
     );

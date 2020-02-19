@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../widgets/my_bottom_navbar.dart';
+import '../widgets/post_options.dart';
 import '../widgets/comment_item.dart';
 import '../widgets/section_title.dart';
 import '../widgets/my_appbar.dart';
@@ -20,48 +21,7 @@ class MissingPotDetails extends StatelessWidget {
       ]),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: Row(
-          children: <Widget>[
-            SizedBox(
-              width: 30,
-              child: IconButton(
-                color: Colors.grey,
-                padding: const EdgeInsets.all(0),
-                icon: Icon(Icons.share),
-                onPressed: () {},
-              ),
-            ),
-            SizedBox(
-              width: 30,
-              child: IconButton(
-                color: Colors.grey,
-                padding: const EdgeInsets.all(0),
-                icon: Icon(FontAwesomeIcons.envelope),
-                onPressed: () {},
-              ),
-            ),
-            IconButton(
-              color: Colors.grey,
-              padding: const EdgeInsets.all(0),
-              icon: Icon(Icons.star),
-              onPressed: () {},
-            ),
-            Text(
-              'إضافة إلى المفضلة',
-              style: Theme.of(context).textTheme.caption,
-            ),
-            Spacer(),
-            Image.asset(
-              'assets/images/calendar.png',
-              width: 20,
-            ),
-            const SizedBox(width: 5),
-            Text(
-              '20/2/2012',
-              style: Theme.of(context).textTheme.caption,
-            ),
-          ],
-        ),
+        child: PostOptions(onSharePressed: () {}),
       ),
       const SizedBox(height: 15),
       Padding(
@@ -192,6 +152,41 @@ class MissingPotDetails extends StatelessWidget {
       ),
     ];
     return Scaffold(
+      bottomNavigationBar: MyBottomNavbar(onTap: (index) {}),
+      drawer: LayoutBuilder(
+        builder: (cxt, constraints) => Column(
+          children: <Widget>[
+            SizedBox(height: constraints.maxHeight * 0.2),
+            SizedBox(
+              width: constraints.maxWidth * 0.75,
+              child: FlatButton(
+                onPressed: () {},
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(15),
+                    topLeft: Radius.circular(15),
+                  ),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 5,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/images/trash.png',
+                      width: 30,
+                    ),
+                    const SizedBox(width: 10),
+                    Text('حذف المنشور'),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -218,7 +213,7 @@ class MissingPotDetails extends StatelessWidget {
             Builder(
               builder: (cxt) => IconButton(
                 icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () {},
+                onPressed: () => Scaffold.of(cxt).openDrawer(),
               ),
             ),
             IconButton(

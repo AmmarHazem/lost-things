@@ -23,74 +23,77 @@ class FoundItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 16 / 7,
-      child: Container(
-        color: Colors.white,
-        width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 5,
-            horizontal: 8,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    name,
-                    style: Theme.of(context).textTheme.subhead.copyWith(
-                          fontWeight: FontWeight.bold,
+    return InkWell(
+      onTap: onTap,
+      child: AspectRatio(
+        aspectRatio: 16 / 7,
+        child: Container(
+          color: Colors.white,
+          width: double.infinity,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 5,
+              horizontal: 8,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      name,
+                      style: Theme.of(context).textTheme.subhead.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                      width: 30,
+                      child: IconButton(
+                        padding: const EdgeInsets.all(0),
+                        icon: Image.asset(
+                          'assets/images/tack.png',
                         ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                    width: 30,
-                    child: IconButton(
-                      padding: const EdgeInsets.all(0),
-                      icon: Image.asset(
-                        'assets/images/tack.png',
+                        onPressed: () {},
                       ),
-                      onPressed: () {},
                     ),
-                  ),
-                ],
-              ),
-              Text(truncateText(
-                description,
-                45,
-              )),
-              Row(
-                children: <Widget>[
-                  Image.asset(
-                    'assets/images/calendar.png',
-                    width: 25,
-                  ),
-                  const SizedBox(width: 5),
-                  Text(date),
-                  Spacer(),
-                  SizedBox(
-                    width: 30,
-                    child: IconButton(
+                  ],
+                ),
+                Text(truncateText(
+                  description,
+                  45,
+                )),
+                Row(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/images/calendar.png',
+                      width: 25,
+                    ),
+                    const SizedBox(width: 5),
+                    Text(date),
+                    Spacer(),
+                    SizedBox(
+                      width: 30,
+                      child: IconButton(
+                        padding: const EdgeInsets.all(0),
+                        icon: Icon(Icons.star),
+                        onPressed: () {},
+                        color: Theme.of(context).accentColor,
+                      ),
+                    ),
+                    IconButton(
                       padding: const EdgeInsets.all(0),
-                      icon: Icon(Icons.star),
+                      icon: Icon(FontAwesomeIcons.commentDots),
                       onPressed: () {},
-                      color: Theme.of(context).accentColor,
                     ),
-                  ),
-                  IconButton(
-                    padding: const EdgeInsets.all(0),
-                    icon: Icon(FontAwesomeIcons.commentDots),
-                    onPressed: () {},
-                  ),
-                  Text('($commentsCount)')
-                ],
-              ),
-            ],
+                    Text('($commentsCount)')
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -7,7 +7,7 @@ class FoundTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> listViewItems = [
       FoundItem(
-        onTap: () {},
+        onTap: () => Navigator.pushNamed(context, 'found-post-details'),
         commentsCount: 12,
         date: '1441/9/6',
         description:
@@ -42,16 +42,5 @@ class FoundTab extends StatelessWidget {
         children: listViewItems,
       ),
     );
-    // return ListView.separated(
-    //   separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-    //   itemBuilder: (cxt, index) => listViewItems[index],
-    //   itemCount: listViewItems.length,
-    //   padding: const EdgeInsets.only(
-    //     left: 15,
-    //     right: 15,
-    //     top: 15,
-    //     bottom: 85,
-    //   ),
-    // );
   }
 }
