@@ -113,13 +113,13 @@ class MyDrawer extends StatelessWidget {
                 DrawerButton(
                   iconPath: 'assets/images/paper.png',
                   text: 'الشروط و الأحكام',
-                  onTap: () => onTap(3),
+                  onTap: () => onTap(4),
                 ),
                 const SizedBox(height: 8),
                 DrawerButton(
                   iconPath: 'assets/images/gear.png',
                   text: 'الإعدادات',
-                  onTap: () => onTap(4),
+                  onTap: () => onTap(5),
                 ),
                 const Divider(
                   color: Colors.white,
@@ -127,7 +127,7 @@ class MyDrawer extends StatelessWidget {
                 DrawerButton(
                   iconPath: 'assets/images/logout.png',
                   text: 'تسجيل الخروج',
-                  onTap: () => onTap(5),
+                  onTap: () => onTap(6),
                 ),
               ],
             ),
