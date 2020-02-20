@@ -19,12 +19,12 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
 
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
-      ),
-    );
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   SystemUiOverlayStyle(
+    //     statusBarColor: Colors.transparent,
+    //     statusBarIconBrightness: Brightness.dark,
+    //   ),
+    // );
     _tabs = [
       Center(
         child: Text('Add Tab'),
