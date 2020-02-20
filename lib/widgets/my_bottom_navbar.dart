@@ -32,59 +32,65 @@ class MyBottomNavbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              IconButton(
-                onPressed: () => onTap(0),
-                icon: Image.asset(
+          FlatButton(
+            padding: const EdgeInsets.all(0),
+            onPressed: () => onTap(0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Image.asset(
                   'assets/images/add-circular-outlined-button (1).png',
                   height: 25,
                 ),
-              ),
-              Text(
-                'إضافة',
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: Colors.white),
-              ),
-            ],
+                Text(
+                  'إضافة',
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption
+                      .copyWith(color: Colors.white),
+                ),
+              ],
+            ),
           ),
-          Column(
-            children: <Widget>[
-              IconButton(
-                onPressed: () => onTap(1),
-                icon: Image.asset(
+          FlatButton(
+            padding: const EdgeInsets.all(0),
+            onPressed: () => onTap(1),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Image.asset(
                   'assets/images/home-run.png',
                   height: 25,
                 ),
-              ),
-              Text(
-                'الرئيسية',
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: Colors.white),
-              ),
-            ],
+                Text(
+                  'الرئيسية',
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption
+                      .copyWith(color: Colors.white),
+                ),
+              ],
+            ),
           ),
-          Column(
-            children: <Widget>[
-              IconButton(
-                onPressed: () => onTap(2),
-                icon: Image.asset(
+          FlatButton(
+            padding: const EdgeInsets.all(0),
+            onPressed: () => onTap(2),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Image.asset(
                   'assets/images/envelope.png',
                   height: 25,
                 ),
-              ),
-              Text(
-                'الرسائل',
-                style: Theme.of(context)
-                    .textTheme
-                    .caption
-                    .copyWith(color: Colors.white),
-              ),
-            ],
+                Text(
+                  'الرسائل',
+                  style: Theme.of(context)
+                      .textTheme
+                      .caption
+                      .copyWith(color: Colors.white),
+                ),
+              ],
+            ),
           ),
         ],
       ),

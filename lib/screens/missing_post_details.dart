@@ -1,27 +1,54 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:raneem/widgets/my_drawer.dart';
 
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/post_options.dart';
 import '../widgets/comment_item.dart';
 import '../widgets/section_title.dart';
 import '../widgets/my_appbar.dart';
+import '../utils.dart';
 
-class MissingPotDetails extends StatelessWidget {
+class MissingPotDetails extends StatefulWidget {
+  @override
+  _MissingPotDetailsState createState() => _MissingPotDetailsState();
+}
+
+class _MissingPotDetailsState extends State<MissingPotDetails> {
+  int _selectedDrawerIndex = 0;
+  List<Widget> _drawers = [
+    MyDrawer(
+      onTap: (index){},
+    ),
+    DeletePostDrawer(),
+  ];
+
+  void _openDrawer(int index, BuildContext cxt) {
+    if (_selectedDrawerIndex != index) {
+      setState(() {
+        _selectedDrawerIndex = index;
+      });
+    }
+    Scaffold.of(cxt).openDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
     final String imagePath = args['imagePath'];
     final horizontalPadding = const EdgeInsets.symmetric(horizontal: 15);
     final List<Widget> listItems = [
-      MissingItemSlider(imagePath: [
-        imagePath,
-        'assets/images/pexels-photo-1031460j.jpeg',
-        'assets/images/pexels-photo-1162519.jpeg',
-      ]),
+      MissingItemSlider(
+        imagePath: [
+          imagePath,
+          'assets/images/pexels-photo-1031460j.jpeg',
+          'assets/images/pexels-photo-1162519.jpeg',
+        ],
+        openDrawer: _openDrawer,
+      ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: PostOptions(onSharePressed: () {}),
+        child: PostOptions(onSharePressed: () => showShareDialog(context)),
       ),
       const SizedBox(height: 15),
       Padding(
@@ -153,40 +180,7 @@ class MissingPotDetails extends StatelessWidget {
     ];
     return Scaffold(
       bottomNavigationBar: MyBottomNavbar(onTap: (index) {}),
-      drawer: LayoutBuilder(
-        builder: (cxt, constraints) => Column(
-          children: <Widget>[
-            SizedBox(height: constraints.maxHeight * 0.2),
-            SizedBox(
-              width: constraints.maxWidth * 0.75,
-              child: FlatButton(
-                onPressed: () {},
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(15),
-                    topLeft: Radius.circular(15),
-                  ),
-                ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 15,
-                  vertical: 5,
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Image.asset(
-                      'assets/images/trash.png',
-                      width: 30,
-                    ),
-                    const SizedBox(width: 10),
-                    Text('حذف المنشور'),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: _drawers[_selectedDrawerIndex],
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -213,7 +207,7 @@ class MissingPotDetails extends StatelessWidget {
             Builder(
               builder: (cxt) => IconButton(
                 icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () => Scaffold.of(cxt).openDrawer(),
+                onPressed: () => _openDrawer(0, cxt),
               ),
             ),
             IconButton(
@@ -234,13 +228,59 @@ class MissingPotDetails extends StatelessWidget {
   }
 }
 
+class DeletePostDrawer extends StatelessWidget {
+  const DeletePostDrawer({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (cxt, constraints) => Column(
+        children: <Widget>[
+          SizedBox(height: constraints.maxHeight * 0.2),
+          SizedBox(
+            width: constraints.maxWidth * 0.75,
+            child: FlatButton(
+              onPressed: () {},
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  topLeft: Radius.circular(15),
+                ),
+              ),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 5,
+              ),
+              child: Row(
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/trash.png',
+                    width: 30,
+                  ),
+                  const SizedBox(width: 10),
+                  Text('حذف المنشور'),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class MissingItemSlider extends StatefulWidget {
   const MissingItemSlider({
     Key key,
     @required this.imagePath,
+    @required this.openDrawer,
   }) : super(key: key);
 
   final List<String> imagePath;
+  final Function openDrawer;
 
   @override
   _MissingItemSliderState createState() => _MissingItemSliderState();
@@ -292,6 +332,16 @@ class _MissingItemSliderState extends State<MissingItemSlider> {
                 ),
               ),
             ],
+          ),
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: IconButton(
+            iconSize: 30,
+            icon: Icon(Icons.more_vert),
+            onPressed: () => widget.openDrawer(1, context),
+            color: Theme.of(context).accentColor,
           ),
         ),
         Positioned(

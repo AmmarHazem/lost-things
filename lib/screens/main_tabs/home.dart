@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:raneem/widgets/drawer_button.dart';
 
 import '../../styles.dart';
 import '../../widgets/missing_and_found_tabs_view.dart';
@@ -26,20 +27,15 @@ class HomeTab extends StatelessWidget {
               title: Row(
                 children: <Widget>[
                   const SizedBox(width: 10),
-                  Builder(
-                    builder: (cxt) => IconButton(
-                      icon: Image.asset('assets/images/list (1).png'),
-                      onPressed: () => Scaffold.of(cxt).openDrawer(),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
+                  OpenDrawerButton(),
                   IconButton(
                     icon: Image.asset('assets/images/alarm (2).png'),
-                    onPressed: () => Navigator.pushNamed(context, 'notifications'),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, 'notifications'),
                   ),
                   Spacer(),
                   SizedBox(
-                    width: 60, 
+                    width: 60,
                     height: 40,
                     child: FlatButton(
                       padding: const EdgeInsets.all(0),
@@ -74,7 +70,8 @@ class HomeTab extends StatelessWidget {
                           children: <Widget>[
                             const SizedBox(height: 10),
                             InkWell(
-                              onTap: () {},
+                              onTap: () =>
+                                  Navigator.pushNamed(context, 'search'),
                               child: Container(
                                 width: constraints.maxWidth * 0.7,
                                 padding: const EdgeInsets.symmetric(

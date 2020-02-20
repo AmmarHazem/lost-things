@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import './screens/search_result.dart';
 import './screens/notifications.dart';
 import './screens/found_post_details.dart';
 import './screens/missing_post_details.dart';
@@ -18,6 +19,8 @@ import './screens/verification_code.dart';
 import './screens/login.dart';
 import './screens/login_or_register.dart';
 import './screens/splash.dart';
+import 'screens/conversation.dart';
+import 'screens/search.dart';
 import 'screens/settings.dart';
 import 'styles.dart';
 
@@ -58,6 +61,7 @@ class Raneem extends StatelessWidget {
           primarySwatch: Colors.blue,
           brightness: Brightness.light,
           scaffoldBackgroundColor: grey1,
+          
         ),
         initialRoute: 'splash',
         routes: {
@@ -78,6 +82,9 @@ class Raneem extends StatelessWidget {
           'missing-post-details': (cxt) => MissingPotDetails(),
           'found-post-details': (cxt) => FoundPostDetails(),
           'notifications': (cxt) => Notifications(),
+          'conversation': (cxt) => Conversation(),
+          'search': (cxt) => Search(),
+          'search-result': (cxt) => SearchResult(),
         },
       ),
     );

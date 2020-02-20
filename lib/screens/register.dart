@@ -18,13 +18,6 @@ class _RegisterState extends State<Register> {
     super.initState();
 
     _emailOrPhoneNumber.addListener(_focusNodeListener);
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.light,
-        statusBarIconBrightness: Brightness.light,
-      ),
-    );
   }
 
   void _focusNodeListener() {
@@ -277,7 +270,7 @@ class _RegisterState extends State<Register> {
                           ),
                         ),
                         onPressed: () =>
-                            Navigator.pushNamed(context, 'register'),
+                            Navigator.pushReplacementNamed(context, 'login'),
                       ),
                     ],
                   ),

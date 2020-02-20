@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utils.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/my_appbar.dart';
 import '../widgets/report_found_page.dart';
@@ -48,157 +49,163 @@ class _AddPostState extends State<AddPost> {
         ),
         centerWidget: Text('إضافة منشور'),
       ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (cxt, constraints) => SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 15,
-              ),
-              child: SizedBox(
-                height: constraints.maxHeight * 1.6,
-                child: Column(
-                  children: <Widget>[
-                    Row(
+      body: Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          positionedCircle,
+          SafeArea(
+            child: LayoutBuilder(
+              builder: (cxt, constraints) => SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 15,
+                  ),
+                  child: SizedBox(
+                    height: constraints.maxHeight * 1.6,
+                    child: Column(
                       children: <Widget>[
-                        Expanded(
-                          child: InkWell(
-                            onTap: () {
-                              if (!_reportMissing) {
-                                setState(() {
-                                  _reportMissing = !_reportMissing;
-                                });
-                                _pageController.animateToPage(
-                                  0,
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                              child: InkWell(
+                                onTap: () {
+                                  if (!_reportMissing) {
+                                    setState(() {
+                                      _reportMissing = !_reportMissing;
+                                    });
+                                    _pageController.animateToPage(
+                                      0,
+                                      duration: animationDuration,
+                                      curve: Curves.easeInOutCirc,
+                                    );
+                                  }
+                                },
+                                child: AnimatedContainer(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 15,
+                                    vertical: 10,
+                                  ),
                                   duration: animationDuration,
-                                  curve: Curves.easeInOutCirc,
-                                );
-                              }
-                            },
-                            child: AnimatedContainer(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                                vertical: 10,
-                              ),
-                              duration: animationDuration,
-                              decoration: BoxDecoration(
-                                color: _reportMissing
-                                    ? Theme.of(context).primaryColor
-                                    : grey1,
-                                border: _reportMissing
-                                    ? Border(
-                                        right: BorderSide(
-                                          color: Theme.of(context).accentColor,
-                                          width: 3,
-                                        ),
-                                      )
-                                    : Border(
-                                        right: BorderSide(
-                                          color: grey1,
-                                          width: 3,
+                                  decoration: BoxDecoration(
+                                    color: _reportMissing
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.transparent,
+                                    border: _reportMissing
+                                        ? Border(
+                                            right: BorderSide(
+                                              color: Theme.of(context).accentColor,
+                                              width: 3,
+                                            ),
+                                          )
+                                        : Border(
+                                            right: BorderSide(
+                                              color: grey1,
+                                              width: 3,
+                                            ),
+                                          ),
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.check,
+                                        color:
+                                            _reportMissing ? Colors.white : grey1,
+                                      ),
+                                      Text(
+                                        'إبلاغ عن مفقود',
+                                        style: TextStyle(
+                                          color: _reportMissing
+                                              ? Colors.white
+                                              : Theme.of(context).primaryColor,
                                         ),
                                       ),
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.check,
-                                    color:
-                                        _reportMissing ? Colors.white : grey1,
+                                    ],
                                   ),
-                                  Text(
-                                    'إبلاغ عن مفقود',
-                                    style: TextStyle(
-                                      color: _reportMissing
-                                          ? Colors.white
-                                          : Theme.of(context).primaryColor,
-                                    ),
-                                  ),
-                                ],
+                                ),
                               ),
                             ),
-                          ),
+                            Expanded(
+                              child: InkWell(
+                                onTap: () {
+                                  if (_reportMissing) {
+                                    setState(() {
+                                      _reportMissing = !_reportMissing;
+                                    });
+                                    _pageController.animateToPage(
+                                      1,
+                                      duration: animationDuration,
+                                      curve: Curves.easeInOutCirc,
+                                    );
+                                  }
+                                },
+                                child: AnimatedContainer(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 15,
+                                    vertical: 10,
+                                  ),
+                                  duration: animationDuration,
+                                  decoration: BoxDecoration(
+                                    color: !_reportMissing
+                                        ? Theme.of(context).primaryColor
+                                        : Colors.transparent,
+                                    border: !_reportMissing
+                                        ? Border(
+                                            left: BorderSide(
+                                              color: Theme.of(context).accentColor,
+                                              width: 3,
+                                            ),
+                                          )
+                                        : Border(
+                                            left: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 3,
+                                            ),
+                                          ),
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.check,
+                                        color:
+                                            !_reportMissing ? Colors.white : grey1,
+                                      ),
+                                      Text(
+                                        'إعلان عن موجود',
+                                        style: TextStyle(
+                                          color: !_reportMissing
+                                              ? Colors.white
+                                              : Theme.of(context).primaryColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
+                        const SizedBox(height: 20),
                         Expanded(
-                          child: InkWell(
-                            onTap: () {
-                              if (_reportMissing) {
-                                setState(() {
-                                  _reportMissing = !_reportMissing;
-                                });
-                                _pageController.animateToPage(
-                                  1,
-                                  duration: animationDuration,
-                                  curve: Curves.easeInOutCirc,
-                                );
-                              }
-                            },
-                            child: AnimatedContainer(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                                vertical: 10,
-                              ),
-                              duration: animationDuration,
-                              decoration: BoxDecoration(
-                                color: !_reportMissing
-                                    ? Theme.of(context).primaryColor
-                                    : grey1,
-                                border: !_reportMissing
-                                    ? Border(
-                                        left: BorderSide(
-                                          color: Theme.of(context).accentColor,
-                                          width: 3,
-                                        ),
-                                      )
-                                    : Border(
-                                        left: BorderSide(
-                                          color: grey1,
-                                          width: 3,
-                                        ),
-                                      ),
-                              ),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.check,
-                                    color:
-                                        !_reportMissing ? Colors.white : grey1,
-                                  ),
-                                  Text(
-                                    'إعلان عن موجود',
-                                    style: TextStyle(
-                                      color: !_reportMissing
-                                          ? Colors.white
-                                          : Theme.of(context).primaryColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                          child: PageView(
+                            physics: NeverScrollableScrollPhysics(),
+                            controller: _pageController,
+                            children: <Widget>[
+                              ReportMissingPage(),
+                              ReportFoundPage(),
+                            ],
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
-                    Expanded(
-                      child: PageView(
-                        physics: NeverScrollableScrollPhysics(),
-                        controller: _pageController,
-                        children: <Widget>[
-                          ReportMissingPage(),
-                          ReportFoundPage(),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+        ],
       ),
       bottomNavigationBar: MyBottomNavbar(
         onTap: (index) {},

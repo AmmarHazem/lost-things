@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../styles.dart';
-import '../widgets/message_item.dart';
-import '../widgets/my_bottom_navbar.dart';
 import '../widgets/my_appbar.dart';
+import '../widgets/my_bottom_navbar.dart';
+import '../widgets/message_item.dart';
+import '../styles.dart';
 
-class TechnicalSupport extends StatelessWidget {
+class Conversation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> listViewItems = [
@@ -22,8 +22,64 @@ class TechnicalSupport extends StatelessWidget {
       ),
     ];
     return Scaffold(
+      drawer: LayoutBuilder(
+        builder: (cxt, constraints) => Padding(
+          padding: EdgeInsets.only(top: constraints.maxHeight * 0.2),
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: constraints.maxWidth * 0.75,
+                height: 100,
+                decoration: BoxDecoration(
+                color: grey1,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(25),
+                    topLeft: Radius.circular(25),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/trash.png',
+                            width: 30,
+                          ),
+                          const SizedBox(width: 10),
+                          Text('حذف الدردشة'),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 1,
+                      width: double.infinity,
+                      color: Colors.grey[400],
+                    ),
+                    FlatButton(
+                      onPressed: () => Navigator.pushReplacementNamed(context, 'blocked-accounts'),
+                      child: Row(
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/images/block.png',
+                            width: 30,
+                          ),
+                          const SizedBox(width: 10),
+                          Text('حظر المستخدم'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       appBar: MyAppBar(
-        height: 110,
+        height: 60,
         leftWidget: SizedBox(
           width: 40,
           child: FlatButton(
@@ -42,43 +98,22 @@ class TechnicalSupport extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
           ),
         ),
-        rightWidget: IconButton(
-          padding: const EdgeInsets.all(0),
-          icon: Image.asset(
-            'assets/images/settings (1).png',
-            width: 25,
+        rightWidget: Builder(
+          builder: (cxt) => IconButton(
+            padding: const EdgeInsets.all(0),
+            icon: Image.asset(
+              'assets/images/settings (1).png',
+              width: 25,
+            ),
+            onPressed: () => Scaffold.of(cxt).openDrawer(),
+            color: Theme.of(context).accentColor,
           ),
-          onPressed: () {},
-          color: Theme.of(context).accentColor,
         ),
         centerWidget: Column(
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Image.asset(
-                  'assets/images/correct (3).png',
-                  width: 25,
-                ),
-                const SizedBox(width: 5),
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: Theme.of(context).accentColor),
-                  ),
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(8),
-                  child: Image.asset(
-                    'assets/images/help.png',
-                    width: 40,
-                  ),
-                ),
-                const SizedBox(width: 30),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Text('الدعم الفنى'),
+            Text('سارة'),
             const SizedBox(height: 5),
-            Text('@username'),
+            Text('@sarah'),
           ],
         ),
       ),

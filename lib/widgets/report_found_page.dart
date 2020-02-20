@@ -121,7 +121,7 @@ class _ReportFoundPageState extends State<ReportFoundPage> {
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                  color: Colors.grey,
+                  color: Colors.grey[350],
                   width: 2,
                 ),
               ),
@@ -132,7 +132,7 @@ class _ReportFoundPageState extends State<ReportFoundPage> {
                 Text(_selectedType == null ? 'النوع' : _selectedType),
                 Image.asset(
                   'assets/images/back.png',
-                  width: 30,
+                  width: 20,
                 ),
               ],
             ),

@@ -10,7 +10,7 @@ final textFieldDecoration = InputDecoration(
     horizontal: 10,
     vertical: 10,
   ),
-  fillColor: Colors.grey[350],
+  fillColor: Colors.grey[200],
   filled: true,
   border: OutlineInputBorder(
     borderRadius: BorderRadius.circular(0),

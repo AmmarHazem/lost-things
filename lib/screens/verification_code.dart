@@ -125,7 +125,7 @@ class VerificationCode extends StatelessWidget {
                           Text('إرسال'),
                         ],
                       ),
-                      onPressed: () => {},
+                      onPressed: () => Navigator.pushNamed(context, 'main'),
                       color: Theme.of(context).primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),

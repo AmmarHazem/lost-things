@@ -138,7 +138,7 @@ class _ReportMissingPageState extends State<ReportMissingPage> {
             decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                  color: Colors.grey,
+                  color: Colors.grey[350],
                   width: 2,
                 ),
               ),
@@ -149,7 +149,7 @@ class _ReportMissingPageState extends State<ReportMissingPage> {
                 Text(_selectedType == null ? 'النوع' : _selectedType),
                 Image.asset(
                   'assets/images/back.png',
-                  width: 30,
+                  width: 20,
                 ),
               ],
             ),

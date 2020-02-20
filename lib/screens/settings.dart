@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:raneem/widgets/drawer_button.dart';
 import 'package:raneem/widgets/my_alert_dialog.dart';
+import 'package:raneem/widgets/my_drawer.dart';
 
 import '../styles.dart';
 import '../widgets/section_title.dart';
@@ -43,6 +45,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(onTap: (index) {}),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -66,12 +69,7 @@ class _SettingsState extends State<Settings> {
         rightWidget: Row(
           children: <Widget>[
             const SizedBox(width: 10),
-            Builder(
-              builder: (cxt) => IconButton(
-                icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () {},
-              ),
-            ),
+            OpenDrawerButton(),
             IconButton(
               icon: Image.asset('assets/images/alarm (2).png'),
               onPressed: () {},
@@ -196,7 +194,8 @@ class _SettingsState extends State<Settings> {
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: FlatButton(
                       padding: const EdgeInsets.all(0),
-                      onPressed: () => Navigator.pushNamed(context, 'blocked-accounts'),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, 'blocked-accounts'),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:raneem/utils.dart';
 
 import '../widgets/my_appbar.dart';
 import '../widgets/my_bottom_navbar.dart';
@@ -19,9 +20,32 @@ class Notifications extends StatelessWidget {
         date: 'منذ 11 دقيقة',
         onTap: () {},
         title: 'قام شهد بالتعليق على المنشور',
-        type: NotificationType.Comment,
+        type: NotificationType.Message,
         username: '@shahd',
         seen: false,
+        imagePath: 'assets/images/pexels-photo-1162519.jpeg',
+      ),
+      NotificationItem(
+        date: 'منذ 11 دقيقة',
+        onTap: () {},
+        title: 'قام شهد بالتعليق على المنشور',
+        type: NotificationType.NewPost,
+        username: '@shahd',
+      ),
+      NotificationItem(
+        date: 'منذ 11 دقيقة',
+        onTap: () {},
+        title: 'قام شهد بالتعليق على المنشور',
+        type: NotificationType.Support,
+        username: '@shahd',
+        imagePath: 'assets/images/pexels-photo-583847.jpeg',
+      ),
+      NotificationItem(
+        date: 'منذ 11 دقيقة',
+        onTap: () {},
+        title: 'قام شهد بالتعليق على المنشور',
+        type: NotificationType.Comment,
+        username: '@shahd',
       ),
     ];
     return Scaffold(
@@ -60,18 +84,24 @@ class Notifications extends StatelessWidget {
             ),
           ],
         ),
-        centerWidget: Text('الإعدادات'),
+        centerWidget: Text('التنبيهات'),
       ),
-      body: SafeArea(
-        child: ListView.separated(
-          separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-          itemBuilder: (cxt, index) => listViewItems[index],
-          itemCount: listViewItems.length,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: 15,
+      body: Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          positionedCircle,
+          SafeArea(
+            child: ListView.separated(
+              separatorBuilder: (cxt, index) => const SizedBox(height: 15),
+              itemBuilder: (cxt, index) => listViewItems[index],
+              itemCount: listViewItems.length,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 15,
+              ),
+            ),
           ),
-        ),
+        ],
       ),
       bottomNavigationBar: MyBottomNavbar(
         onTap: (index) {},
@@ -119,14 +149,15 @@ class NotificationItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 15,
-              vertical: 15,
+              vertical: 20,
             ),
             color: Colors.white,
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Expanded(
                   child: Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: showImageBorder ? const EdgeInsets.all(8) : const EdgeInsets.all(0),
                     decoration: showImageBorder
                         ? BoxDecoration(
                             shape: BoxShape.circle,
@@ -137,16 +168,17 @@ class NotificationItem extends StatelessWidget {
                     child: Image.asset(
                       imagePath,
                       fit: BoxFit.cover,
-                      // width: 30,
+                      // width: 10,
+                      // height: 60,
                     ),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
-                  flex: 6,
+                  flex: 4,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(title),
                       const SizedBox(height: 10),

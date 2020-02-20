@@ -1,68 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/categories_carousel.dart';
-import '../widgets/my_alert_dialog.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/post_options.dart';
 import '../widgets/my_appbar.dart';
 import '../widgets/comment_item.dart';
 import '../widgets/section_title.dart';
+import '../utils.dart';
 
 class FoundPostDetails extends StatelessWidget {
-  void _showShareDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (cxt) => MyAlertDialog(
-        title: Text('مشاركة عبر'),
-        content: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  CategoriesSliderItem(
-                    icon: Image.asset('assets/images/instagram.png'),
-                    name: 'إنستاجران',
-                    onTap: (){},
-                  ),
-                  CategoriesSliderItem(
-                    icon: Image.asset('assets/images/facebook.png'),
-                    name: 'فيسبوك',
-                    onTap: (){},
-                  ),
-                  CategoriesSliderItem(
-                    icon: Image.asset('assets/images/snapchat.png'),
-                    name: 'سناب شات',
-                    onTap: (){},
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              Row(
-                children: <Widget>[
-                  CategoriesSliderItem(
-                    icon: Image.asset('assets/images/whatsapp.png'),
-                    name: 'واتساب',
-                    onTap: (){},
-                  ),
-                  CategoriesSliderItem(
-                    icon: Image.asset('assets/images/twitter.png'),
-                    name: 'تويتر',
-                    onTap: (){},
-                  ),
-                  CategoriesSliderItem(
-                    icon: Image.asset('assets/images/chain.png'),
-                    name: 'نسخ الرابط',
-                    onTap: (){},
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +123,7 @@ class FoundPostDetails extends StatelessWidget {
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: PostOptions(
-          onSharePressed: () => _showShareDialog(context),
+          onSharePressed: () => showShareDialog(context),
         ),
       ),
       Padding(

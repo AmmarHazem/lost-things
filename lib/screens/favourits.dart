@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:raneem/widgets/drawer_button.dart';
+import 'package:raneem/widgets/my_drawer.dart';
 
+import '../utils.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/found_item.dart';
 import '../widgets/missing_item.dart';
@@ -37,6 +40,9 @@ class Favourites extends StatelessWidget {
       ),
     ];
     return Scaffold(
+      drawer: MyDrawer(
+        onTap: (index){},
+      ),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -60,12 +66,7 @@ class Favourites extends StatelessWidget {
         rightWidget: Row(
           children: <Widget>[
             const SizedBox(width: 10),
-            Builder(
-              builder: (cxt) => IconButton(
-                icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () {},
-              ),
-            ),
+            OpenDrawerButton(),
             const SizedBox(width: 10),
             IconButton(
               icon: Image.asset('assets/images/alarm (2).png'),
@@ -75,16 +76,22 @@ class Favourites extends StatelessWidget {
         ),
         centerWidget: Text('المفضلة'),
       ),
-      body: SafeArea(
-        child: ListView.separated(
-          separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-          itemBuilder: (cxt, index) => listViewItems[index],
-          itemCount: listViewItems.length,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 15,
-            vertical: 15,
+      body: Stack(
+        overflow: Overflow.visible,
+        children: <Widget>[
+          positionedCircle,
+          SafeArea(
+            child: ListView.separated(
+              separatorBuilder: (cxt, index) => const SizedBox(height: 15),
+              itemBuilder: (cxt, index) => listViewItems[index],
+              itemCount: listViewItems.length,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 15,
+              ),
+            ),
           ),
-        ),
+        ],
       ),
       bottomNavigationBar: MyBottomNavbar(
         onTap: (index) {},

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:raneem/styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -120,7 +121,8 @@ class Login extends StatelessWidget {
                                 horizontal: 30,
                               ),
                               child: Text('تسجيل الدخول'),
-                              onPressed: () => Navigator.pushNamed(context, 'main'),
+                              onPressed: () =>
+                                  Navigator.pushNamed(context, 'main'),
                               color: Theme.of(context).accentColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),

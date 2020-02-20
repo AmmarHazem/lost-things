@@ -15,8 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.dark,
+        // statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark,
+        // systemNavigationBarIconBrightness: Brightness.dark,
       ),
     );
     Future.delayed(Duration.zero, () {
