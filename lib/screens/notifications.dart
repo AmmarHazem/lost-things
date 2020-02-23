@@ -1,10 +1,18 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
-import 'package:raneem/utils.dart';
 
+import '../widgets/drawer_button.dart';
+import '../widgets/open_notifications_button.dart';
+import '../utils.dart';
+import '../widgets/my_drawer.dart';
 import '../widgets/my_appbar.dart';
 import '../widgets/my_bottom_navbar.dart';
 
 class Notifications extends StatelessWidget {
+  void _drawerOnTap(int index, BuildContext context) {
+    Navigator.pushNamed(context, KDrawerRoutesNames[index]);
+  }
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> listViewItems = [
@@ -49,6 +57,9 @@ class Notifications extends StatelessWidget {
       ),
     ];
     return Scaffold(
+      drawer: MyDrawer(
+        onTap: (int index) => _drawerOnTap(index, context),
+      ),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -69,21 +80,7 @@ class Notifications extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
           ),
         ),
-        rightWidget: Row(
-          children: <Widget>[
-            const SizedBox(width: 10),
-            Builder(
-              builder: (cxt) => IconButton(
-                icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () {},
-              ),
-            ),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
-          ],
-        ),
+        rightWidget: OpenDrawerButton(),
         centerWidget: Text('التنبيهات'),
       ),
       body: Stack(
@@ -91,13 +88,19 @@ class Notifications extends StatelessWidget {
         children: <Widget>[
           positionedCircle,
           SafeArea(
-            child: ListView.separated(
+            child: LiveList.options(
+              options: animatedListOptions,
               separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-              itemBuilder: (cxt, index) => listViewItems[index],
+              itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+                cxt,
+                index,
+                animation,
+                listViewItems[index],
+              ),
               itemCount: listViewItems.length,
               padding: const EdgeInsets.symmetric(
-                horizontal: 15,
                 vertical: 15,
+                horizontal: 15,
               ),
             ),
           ),
@@ -148,7 +151,7 @@ class NotificationItem extends StatelessWidget {
         children: <Widget>[
           Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: 15,
+              horizontal: 20,
               vertical: 20,
             ),
             color: Colors.white,
@@ -157,7 +160,9 @@ class NotificationItem extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   child: Container(
-                    padding: showImageBorder ? const EdgeInsets.all(8) : const EdgeInsets.all(0),
+                    padding: showImageBorder
+                        ? const EdgeInsets.all(8)
+                        : const EdgeInsets.all(0),
                     decoration: showImageBorder
                         ? BoxDecoration(
                             shape: BoxShape.circle,
@@ -219,7 +224,7 @@ class NotificationItem extends StatelessWidget {
               ),
             ),
           Positioned(
-            top: 5,
+            top: 3,
             left: 5,
             child: Text(
               date,

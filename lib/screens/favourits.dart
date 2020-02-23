@@ -1,7 +1,9 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
-import 'package:raneem/widgets/drawer_button.dart';
-import 'package:raneem/widgets/my_drawer.dart';
 
+import '../widgets/drawer_button.dart';
+import '../widgets/my_drawer.dart';
+import '../widgets/open_notifications_button.dart';
 import '../utils.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/found_item.dart';
@@ -9,6 +11,8 @@ import '../widgets/missing_item.dart';
 import '../widgets/my_appbar.dart';
 
 class Favourites extends StatelessWidget {
+  final _drawerIndex = 2;
+
   @override
   Widget build(BuildContext context) {
     final List<Widget> listViewItems = [
@@ -41,7 +45,7 @@ class Favourites extends StatelessWidget {
     ];
     return Scaffold(
       drawer: MyDrawer(
-        onTap: (index){},
+        onTap: (int index) => drawerOnTap(index, _drawerIndex, context),
       ),
       appBar: MyAppBar(
         height: 50,
@@ -68,10 +72,7 @@ class Favourites extends StatelessWidget {
             const SizedBox(width: 10),
             OpenDrawerButton(),
             const SizedBox(width: 10),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
+            OpenNotificationsButton(),
           ],
         ),
         centerWidget: Text('المفضلة'),
@@ -81,9 +82,15 @@ class Favourites extends StatelessWidget {
         children: <Widget>[
           positionedCircle,
           SafeArea(
-            child: ListView.separated(
+            child: LiveList.options(
+              options: animatedListOptions,
               separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-              itemBuilder: (cxt, index) => listViewItems[index],
+              itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+                cxt,
+                index,
+                animation,
+                listViewItems[index],
+              ),
               itemCount: listViewItems.length,
               padding: const EdgeInsets.symmetric(
                 horizontal: 15,

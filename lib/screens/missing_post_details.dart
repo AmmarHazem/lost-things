@@ -1,7 +1,9 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:raneem/widgets/my_drawer.dart';
 
+import '../widgets/open_notifications_button.dart';
+import '../widgets/my_drawer.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/post_options.dart';
 import '../widgets/comment_item.dart';
@@ -16,12 +18,19 @@ class MissingPotDetails extends StatefulWidget {
 
 class _MissingPotDetailsState extends State<MissingPotDetails> {
   int _selectedDrawerIndex = 0;
-  List<Widget> _drawers = [
-    MyDrawer(
-      onTap: (index){},
-    ),
-    DeletePostDrawer(),
-  ];
+  List<Widget> _drawers;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _drawers = [
+      MyDrawer(
+        onTap: (index) => drawerOnTap(index, -1, context),
+      ),
+      DeletePostDrawer(),
+    ];
+  }
 
   void _openDrawer(int index, BuildContext cxt) {
     if (_selectedDrawerIndex != index) {
@@ -179,6 +188,7 @@ class _MissingPotDetailsState extends State<MissingPotDetails> {
       ),
     ];
     return Scaffold(
+      drawerEdgeDragWidth: 0,
       bottomNavigationBar: MyBottomNavbar(onTap: (index) {}),
       drawer: _drawers[_selectedDrawerIndex],
       appBar: MyAppBar(
@@ -210,18 +220,22 @@ class _MissingPotDetailsState extends State<MissingPotDetails> {
                 onPressed: () => _openDrawer(0, cxt),
               ),
             ),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
+            OpenNotificationsButton(),
           ],
         ),
       ),
       body: SafeArea(
-        child: ListView.builder(
-          itemBuilder: (cxt, index) => listItems[index],
+        child: LiveList.options(
+          options: animatedListOptions,
+          separatorBuilder: (cxt, index) => const SizedBox(height: 15),
+          itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+            cxt,
+            index,
+            animation,
+            listItems[index],
+          ),
           itemCount: listItems.length,
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.only(top: 25, bottom: 15),
         ),
       ),
     );

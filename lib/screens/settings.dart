@@ -1,9 +1,11 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:raneem/widgets/drawer_button.dart';
-import 'package:raneem/widgets/my_alert_dialog.dart';
-import 'package:raneem/widgets/my_drawer.dart';
 
+import '../widgets/drawer_button.dart';
+import '../widgets/my_alert_dialog.dart';
+import '../widgets/my_drawer.dart';
+import '../widgets/open_notifications_button.dart';
 import '../styles.dart';
 import '../widgets/section_title.dart';
 import '../widgets/my_appbar.dart';
@@ -16,6 +18,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  final _drawerIndex = 5;
+
   void _showChangeEmailDialog() {
     showDialog(
       context: context,
@@ -44,8 +48,187 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+    final listItems = <Widget>[
+      const SizedBox(height: 30),
+      SectionTitle(title: 'حسابى'),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: Column(
+          children: <Widget>[
+            const SizedBox(height: 20),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+              ),
+              child: Row(
+                children: <Widget>[
+                  Text('البريد الإلكترونى'),
+                  const SizedBox(width: 20),
+                  Text('username@emial.com'),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                FlatButton(
+                  child: Text(
+                    'تغير',
+                    style: TextStyle(
+                      color: Theme.of(context).accentColor,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  onPressed: _showChangeEmailDialog,
+                  padding: const EdgeInsets.all(0),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+              ),
+              child: Row(
+                children: <Widget>[
+                  Text('كلمة المرور'),
+                  const SizedBox(width: 20),
+                  Text('* * * * * *'),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                FlatButton(
+                  child: Text(
+                    'تغير',
+                    style: TextStyle(
+                      color: Theme.of(context).accentColor,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  onPressed: _showChangePasswordDialog,
+                  padding: const EdgeInsets.all(0),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 40),
+      SectionTitle(title: 'التنبيهات'),
+      const SizedBox(height: 20),
+      Container(
+        margin: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: Theme.of(context).primaryColor,
+            ),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text('التنبيهات'),
+            Switch(
+              onChanged: (value) {},
+              value: true,
+              activeColor: Theme.of(context).primaryColor,
+              activeTrackColor: Theme.of(context).accentColor,
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 20),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: FlatButton(
+          padding: const EdgeInsets.all(0),
+          onPressed: () => Navigator.pushNamed(context, 'blocked-accounts'),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'الحسابات المحظورة',
+                style: TextStyle(color: Theme.of(context).primaryColor),
+              ),
+              Icon(
+                Icons.chevron_right,
+                color: Theme.of(context).accentColor,
+              ),
+            ],
+          ),
+        ),
+      ),
+      const SizedBox(height: 60),
+      SectionTitle(title: 'الموقع'),
+      const SizedBox(height: 20),
+      Container(
+        margin: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text('الموقع'),
+            Switch(
+              onChanged: (value) {},
+              value: true,
+              activeColor: Theme.of(context).primaryColor,
+              activeTrackColor: Theme.of(context).accentColor,
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 20),
+      SectionTitle(title: 'اللغة'),
+      const SizedBox(height: 20),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: DropdownButton<String>(
+          underline: const SizedBox(),
+          value: 'العربية',
+          items: [
+            DropdownMenuItem<String>(
+              value: 'العربية',
+              child: Text(
+                'العربية',
+                style: TextStyle(color: Theme.of(context).primaryColor),
+              ),
+            ),
+            DropdownMenuItem<String>(
+              value: 'english',
+              child: Text(
+                'English',
+                style: TextStyle(color: Theme.of(context).primaryColor),
+              ),
+            ),
+          ],
+          onChanged: (value) {},
+          isExpanded: true,
+          icon: Icon(
+            FontAwesomeIcons.chevronDown,
+            color: Theme.of(context).accentColor,
+          ),
+        ),
+      ),
+      const SizedBox(height: 30),
+    ];
     return Scaffold(
-      drawer: MyDrawer(onTap: (index) {}),
+      drawer: MyDrawer(
+          onTap: (int index) => drawerOnTap(index, _drawerIndex, context)),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -70,10 +253,7 @@ class _SettingsState extends State<Settings> {
           children: <Widget>[
             const SizedBox(width: 10),
             OpenDrawerButton(),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
+            OpenNotificationsButton(),
           ],
         ),
         centerWidget: Text('الإعدادات'),
@@ -83,190 +263,18 @@ class _SettingsState extends State<Settings> {
         children: <Widget>[
           positionedCircle,
           SafeArea(
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  const SizedBox(height: 30),
-                  SectionTitle(title: 'حسابى'),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Column(
-                      children: <Widget>[
-                        const SizedBox(height: 20),
-                        Container(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                          ),
-                          child: Row(
-                            children: <Widget>[
-                              Text('البريد الإلكترونى'),
-                              const SizedBox(width: 20),
-                              Text('username@emial.com'),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            FlatButton(
-                              child: Text(
-                                'تغير',
-                                style: TextStyle(
-                                  color: Theme.of(context).accentColor,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                              onPressed: _showChangeEmailDialog,
-                              padding: const EdgeInsets.all(0),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 30),
-                        Container(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                          ),
-                          child: Row(
-                            children: <Widget>[
-                              Text('كلمة المرور'),
-                              const SizedBox(width: 20),
-                              Text('* * * * * *'),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            FlatButton(
-                              child: Text(
-                                'تغير',
-                                style: TextStyle(
-                                  color: Theme.of(context).accentColor,
-                                  decoration: TextDecoration.underline,
-                                ),
-                              ),
-                              onPressed: _showChangePasswordDialog,
-                              padding: const EdgeInsets.all(0),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 40),
-                  SectionTitle(title: 'التنبيهات'),
-                  const SizedBox(height: 20),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 15),
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text('التنبيهات'),
-                        Switch(
-                          onChanged: (value) {},
-                          value: true,
-                          activeColor: Theme.of(context).primaryColor,
-                          activeTrackColor: Theme.of(context).accentColor,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: FlatButton(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () =>
-                          Navigator.pushNamed(context, 'blocked-accounts'),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            'الحسابات المحظورة',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          Icon(
-                            Icons.chevron_right,
-                            color: Theme.of(context).accentColor,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 60),
-                  SectionTitle(title: 'الموقع'),
-                  const SizedBox(height: 20),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 15),
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text('الموقع'),
-                        Switch(
-                          onChanged: (value) {},
-                          value: true,
-                          activeColor: Theme.of(context).primaryColor,
-                          activeTrackColor: Theme.of(context).accentColor,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  SectionTitle(title: 'اللغة'),
-                  const SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: DropdownButton<String>(
-                      underline: const SizedBox(),
-                      value: 'العربية',
-                      items: [
-                        DropdownMenuItem<String>(
-                          value: 'العربية',
-                          child: Text(
-                            'العربية',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                        ),
-                        DropdownMenuItem<String>(
-                          value: 'english',
-                          child: Text(
-                            'English',
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ),
-                        ),
-                      ],
-                      onChanged: (value) {},
-                      isExpanded: true,
-                      icon: Icon(
-                        FontAwesomeIcons.chevronDown,
-                        color: Theme.of(context).accentColor,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                ],
+            child: LiveList.options(
+              options: animatedListOptions,
+              itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+                cxt,
+                index,
+                animation,
+                listItems[index],
+              ),
+              itemCount: listItems.length,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 15,
               ),
             ),
           ),

@@ -1,5 +1,7 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 
+import '../utils.dart';
 import '../widgets/my_appbar.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/message_item.dart';
@@ -31,7 +33,7 @@ class Conversation extends StatelessWidget {
                 width: constraints.maxWidth * 0.75,
                 height: 100,
                 decoration: BoxDecoration(
-                color: grey1,
+                  color: grey1,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25),
                     topLeft: Radius.circular(25),
@@ -59,7 +61,8 @@ class Conversation extends StatelessWidget {
                       color: Colors.grey[400],
                     ),
                     FlatButton(
-                      onPressed: () => Navigator.pushReplacementNamed(context, 'blocked-accounts'),
+                      onPressed: () => Navigator.pushReplacementNamed(
+                          context, 'blocked-accounts'),
                       child: Row(
                         children: <Widget>[
                           Image.asset(
@@ -124,10 +127,16 @@ class Conversation extends StatelessWidget {
               color: Colors.grey,
             ),
             Expanded(
-              child: ListView.separated(
+              child: LiveList.options(
                 reverse: true,
+                options: animatedListOptions,
                 separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-                itemBuilder: (cxt, index) => listViewItems[index],
+                itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+                  cxt,
+                  index,
+                  animation,
+                  listViewItems[index],
+                ),
                 itemCount: listViewItems.length,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,

@@ -1,5 +1,9 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/open_notifications_button.dart';
+import '../widgets/drawer_button.dart';
+import '../widgets/my_drawer.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/post_options.dart';
 import '../widgets/my_appbar.dart';
@@ -8,7 +12,6 @@ import '../widgets/section_title.dart';
 import '../utils.dart';
 
 class FoundPostDetails extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     final horizontalPadding = const EdgeInsets.symmetric(horizontal: 15);
@@ -202,6 +205,7 @@ class FoundPostDetails extends StatelessWidget {
       ),
     ];
     return Scaffold(
+      drawer: MyDrawer(onTap: (int index) => drawerOnTap(index, -1, context)),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -225,24 +229,23 @@ class FoundPostDetails extends StatelessWidget {
         rightWidget: Row(
           children: <Widget>[
             const SizedBox(width: 10),
-            Builder(
-              builder: (cxt) => IconButton(
-                icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () {},
-              ),
-            ),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
+            OpenDrawerButton(),
+            OpenNotificationsButton(),
           ],
         ),
       ),
       body: SafeArea(
-        child: ListView.builder(
-          itemBuilder: (cxt, index) => listViewItems[index],
+        child: LiveList.options(
+          options: animatedListOptions,
+          separatorBuilder: (cxt, index) => const SizedBox(height: 15),
+          itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+            cxt,
+            index,
+            animation,
+            listViewItems[index],
+          ),
           itemCount: listViewItems.length,
-          padding: const EdgeInsets.symmetric(vertical: 15),
+          padding: const EdgeInsets.only(top: 15, bottom: 15),
         ),
       ),
       bottomNavigationBar: MyBottomNavbar(onTap: (index) {}),

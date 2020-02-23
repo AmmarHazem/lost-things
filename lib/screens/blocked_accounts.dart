@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:raneem/widgets/my_alert_dialog.dart';
-import 'package:raneem/widgets/section_title.dart';
 
+import '../widgets/drawer_button.dart';
+import '../widgets/my_alert_dialog.dart';
+import '../widgets/my_drawer.dart';
+import '../widgets/open_notifications_button.dart';
+import '../widgets/section_title.dart';
 import '../utils.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/my_appbar.dart';
@@ -106,6 +109,7 @@ class BlockedAccounts extends StatelessWidget {
       ),
     ];
     return Scaffold(
+      drawer: MyDrawer(onTap: (int index) => drawerOnTap(index, -1, context)),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -129,16 +133,8 @@ class BlockedAccounts extends StatelessWidget {
         rightWidget: Row(
           children: <Widget>[
             const SizedBox(width: 10),
-            Builder(
-              builder: (cxt) => IconButton(
-                icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () {},
-              ),
-            ),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
+            OpenDrawerButton(),
+            OpenNotificationsButton(),
           ],
         ),
         centerWidget: Text('الحسابات المحظورة'),

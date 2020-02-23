@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:raneem/widgets/drawer_button.dart';
-import 'package:raneem/widgets/my_drawer.dart';
 
+import '../widgets/drawer_button.dart';
+import '../widgets/my_drawer.dart';
+import '../widgets/open_notifications_button.dart';
 import '../utils.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/my_appbar.dart';
 
 class TermsAndConditions extends StatelessWidget {
+  final _drawerIndex = 4;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MyDrawer(
-        onTap: (index) {},
+        onTap: (int index) => drawerOnTap(index, _drawerIndex, context),
       ),
       appBar: MyAppBar(
         height: 50,
@@ -37,10 +40,7 @@ class TermsAndConditions extends StatelessWidget {
           children: <Widget>[
             const SizedBox(width: 10),
             OpenDrawerButton(),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
+            OpenNotificationsButton(),
           ],
         ),
       ),

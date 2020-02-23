@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization_provider.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,14 +11,6 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
-    //     statusBarColor: Colors.transparent,
-    //     // statusBarBrightness: Brightness.dark,
-    //     statusBarIconBrightness: Brightness.dark,
-    //     // systemNavigationBarIconBrightness: Brightness.dark,
-    //   ),
-    // );
     Future.delayed(Duration.zero, () {
       final data = EasyLocalizationProvider.of(context).data;
       data.changeLocale(Locale("ar", "SA"));
