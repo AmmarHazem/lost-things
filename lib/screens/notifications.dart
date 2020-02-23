@@ -2,7 +2,6 @@ import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/drawer_button.dart';
-import '../widgets/open_notifications_button.dart';
 import '../utils.dart';
 import '../widgets/my_drawer.dart';
 import '../widgets/my_appbar.dart';
