@@ -12,7 +12,14 @@ class AddPost extends StatelessWidget {
         child: AddPostTab(goBack: () => Navigator.pop(context)),
       ),
       bottomNavigationBar: MyBottomNavbar(
-        onTap: (index) {},
+        onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+          context,
+          'main',
+          (route) => false,
+          arguments: {
+            'tabIndex': index,
+          },
+        ),
         currentIndex: 1,
       ),
     );

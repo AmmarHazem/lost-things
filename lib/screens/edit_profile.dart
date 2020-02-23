@@ -189,7 +189,16 @@ class EditProfile extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: MyBottomNavbar(onTap: (int index) {}),
+      bottomNavigationBar: MyBottomNavbar(
+        onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+          context,
+          'main',
+          (route) => false,
+          arguments: {
+            'tabIndex': index,
+          },
+        ),
+      ),
     );
   }
 }

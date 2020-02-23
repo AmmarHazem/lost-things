@@ -189,7 +189,16 @@ class _MissingPotDetailsState extends State<MissingPotDetails> {
     ];
     return Scaffold(
       drawerEdgeDragWidth: 0,
-      bottomNavigationBar: MyBottomNavbar(onTap: (index) {}),
+      bottomNavigationBar: MyBottomNavbar(
+        onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+          context,
+          'main',
+          (route) => false,
+          arguments: {
+            'tabIndex': index,
+          },
+        ),
+      ),
       drawer: _drawers[_selectedDrawerIndex],
       appBar: MyAppBar(
         height: 50,

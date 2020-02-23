@@ -24,6 +24,13 @@ class _MainScreenState extends State<MainScreen> {
       HomeTab(),
       MessagesTab(goBack: _goBack),
     ];
+
+    Future.delayed(Duration.zero, () {
+      final Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
+      setState(() {
+        _currentIndex = args['tabIndex'] == null ? 1 : args['tabIndex'];
+      });
+    });
   }
 
   void _drawerOnTap(int index) =>
@@ -40,10 +47,6 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void _bottomNavbarOnTap(int index) {
-    // if (index == 0) {
-    //   Navigator.pushNamed(context, 'add-post');
-    //   return;
-    // }
     setState(() => _currentIndex = index);
   }
 

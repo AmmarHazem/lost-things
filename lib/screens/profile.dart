@@ -233,7 +233,14 @@ class Profile extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: MyBottomNavbar(
-                  onTap: (index) {},
+                  onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    'main',
+                    (route) => false,
+                    arguments: {
+                      'tabIndex': index,
+                    },
+                  ),
                   currentIndex: 1,
                 ),
               ),

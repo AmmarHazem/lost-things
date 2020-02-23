@@ -102,7 +102,14 @@ class TermsAndConditions extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: MyBottomNavbar(
-        onTap: (index) {},
+        onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+          context,
+          'main',
+          (route) => false,
+          arguments: {
+            'tabIndex': index,
+          },
+        ),
         currentIndex: 1,
       ),
     );

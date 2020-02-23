@@ -248,7 +248,16 @@ class FoundPostDetails extends StatelessWidget {
           padding: const EdgeInsets.only(top: 15, bottom: 15),
         ),
       ),
-      bottomNavigationBar: MyBottomNavbar(onTap: (index) {}),
+      bottomNavigationBar: MyBottomNavbar(
+        onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+          context,
+          'main',
+          (route) => false,
+          arguments: {
+            'tabIndex': index,
+          },
+        ),
+      ),
     );
   }
 }
