@@ -26,7 +26,8 @@ class _MainScreenState extends State<MainScreen> {
     ];
 
     Future.delayed(Duration.zero, () {
-      final Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
+      Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
+      args = args == null ? {} : args;
       setState(() {
         _currentIndex = args['tabIndex'] == null ? 1 : args['tabIndex'];
       });
