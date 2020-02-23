@@ -53,7 +53,7 @@ class _ReportFoundPageState extends State<ReportFoundPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image.asset(
-                    'assets/images/comment (2).png',
+                    'assets/my_images/comment (2).png',
                     width: 30,
                   ),
                 ],
@@ -94,7 +94,7 @@ class _ReportFoundPageState extends State<ReportFoundPage> {
                     top: -80,
                     left: 10,
                     child: Image.asset(
-                      'assets/images/comment (2).png',
+                      'assets/my_images/comment (2).png',
                       width: 30,
                     ),
                   ),
@@ -132,7 +132,7 @@ class _ReportFoundPageState extends State<ReportFoundPage> {
                 children: <Widget>[
                   Text(_selectedType == null ? 'النوع' : _selectedType),
                   Image.asset(
-                    'assets/images/back.png',
+                    'assets/my_images/back.png',
                     width: 20,
                   ),
                 ],

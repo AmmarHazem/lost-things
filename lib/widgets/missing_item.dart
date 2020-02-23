@@ -71,7 +71,7 @@ class MissingItem extends StatelessWidget {
                             child: IconButton(
                               padding: const EdgeInsets.all(0),
                               icon: Image.asset(
-                                'assets/images/tack.png',
+                                'assets/my_images/tack.png',
                               ),
                               onPressed: () {},
                             ),
@@ -85,7 +85,7 @@ class MissingItem extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           Image.asset(
-                            'assets/images/calendar.png',
+                            'assets/my_images/calendar.png',
                             width: 25,
                           ),
                           const SizedBox(width: 5),

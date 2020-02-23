@@ -11,14 +11,14 @@ class MissingTab extends StatelessWidget {
           context,
           'missing-post-details',
           arguments: {
-            'imagePath': 'assets/images/pexels-photo-583847.jpeg',
+            'imagePath': 'assets/my_images/pexels-photo-583847.jpeg',
           },
         ),
         commentsCount: 12,
         date: '1441/9/6',
         description:
             'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
-        imagePath: 'assets/images/pexels-photo-583847.jpeg',
+        imagePath: 'assets/my_images/pexels-photo-583847.jpeg',
         name: 'هاتف محمول',
       ),
       const SizedBox(height: 15),
@@ -28,7 +28,7 @@ class MissingTab extends StatelessWidget {
         date: '1441/9/6',
         description:
             'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
-        imagePath: 'assets/images/pexels-photo-1031460j.jpeg',
+        imagePath: 'assets/my_images/pexels-photo-1031460j.jpeg',
         name: 'هاتف محمول',
       ),
       const SizedBox(height: 15),
@@ -38,7 +38,7 @@ class MissingTab extends StatelessWidget {
         date: '1441/9/6',
         description:
             'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
-        imagePath: 'assets/images/pexels-photo-1162519.jpeg',
+        imagePath: 'assets/my_images/pexels-photo-1162519.jpeg',
         name: 'هاتف محمول',
       ),
     ];

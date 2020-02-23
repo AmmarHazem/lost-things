@@ -19,7 +19,7 @@ class Notifications extends StatelessWidget {
       Row(
         children: <Widget>[
           IconButton(
-            icon: Image.asset('assets/images/settings (1).png'),
+            icon: Image.asset('assets/my_images/settings (1).png'),
             onPressed: () {},
           ),
         ],
@@ -31,7 +31,7 @@ class Notifications extends StatelessWidget {
         type: NotificationType.Message,
         username: '@shahd',
         seen: false,
-        imagePath: 'assets/images/pexels-photo-1162519.jpeg',
+        imagePath: 'assets/my_images/pexels-photo-1162519.jpeg',
       ),
       NotificationItem(
         date: 'منذ 11 دقيقة',
@@ -46,7 +46,7 @@ class Notifications extends StatelessWidget {
         title: 'قام شهد بالتعليق على المنشور',
         type: NotificationType.Support,
         username: '@shahd',
-        imagePath: 'assets/images/pexels-photo-583847.jpeg',
+        imagePath: 'assets/my_images/pexels-photo-583847.jpeg',
       ),
       NotificationItem(
         date: 'منذ 11 دقيقة',
@@ -143,7 +143,7 @@ class NotificationItem extends StatelessWidget {
     @required this.title,
     @required this.username,
     @required this.date,
-    this.imagePath: 'assets/images/9876 (6).png',
+    this.imagePath: 'assets/my_images/9876 (6).png',
     @required this.onTap,
     this.seen: true,
   }) : super(key: key);
@@ -197,7 +197,7 @@ class NotificationItem extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           Image.asset(
-                            'assets/images/9876 (7).png',
+                            'assets/my_images/9876 (7).png',
                             width: 20,
                           ),
                           const SizedBox(width: 10),

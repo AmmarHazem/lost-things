@@ -70,7 +70,7 @@ class _ReportMissingPageState extends State<ReportMissingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image.asset(
-                    'assets/images/comment (2).png',
+                    'assets/my_images/comment (2).png',
                     width: 30,
                   ),
                 ],
@@ -111,7 +111,7 @@ class _ReportMissingPageState extends State<ReportMissingPage> {
                     top: -80,
                     left: 10,
                     child: Image.asset(
-                      'assets/images/comment (2).png',
+                      'assets/my_images/comment (2).png',
                       width: 30,
                     ),
                   ),
@@ -149,7 +149,7 @@ class _ReportMissingPageState extends State<ReportMissingPage> {
                 children: <Widget>[
                   Text(_selectedType == null ? 'النوع' : _selectedType),
                   Image.asset(
-                    'assets/images/back.png',
+                    'assets/my_images/back.png',
                     width: 20,
                   ),
                 ],
@@ -276,7 +276,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/9876 (6).png',
+                  'assets/my_images/9876 (6).png',
                   height: imageHeight,
                 ),
                 name: 'أغراض شخصية',
@@ -291,7 +291,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/tv.png',
+                  'assets/my_images/tv.png',
                   height: imageHeight,
                 ),
                 name: 'إلكترونيات',
@@ -306,7 +306,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/shirt.png',
+                  'assets/my_images/shirt.png',
                   height: imageHeight,
                 ),
                 name: 'ملابس',
@@ -325,7 +325,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/9876 (6).png',
+                  'assets/my_images/9876 (6).png',
                   height: imageHeight,
                 ),
                 name: 'أغراض شخصية',
@@ -340,7 +340,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/tv.png',
+                  'assets/my_images/tv.png',
                   height: imageHeight,
                 ),
                 name: 'إلكترونيات',
@@ -355,7 +355,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/shirt.png',
+                  'assets/my_images/shirt.png',
                   height: imageHeight,
                 ),
                 name: 'ملابس',
@@ -374,7 +374,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/9876 (6).png',
+                  'assets/my_images/9876 (6).png',
                   height: imageHeight,
                 ),
                 name: 'أغراض شخصية',
@@ -389,7 +389,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/tv.png',
+                  'assets/my_images/tv.png',
                   height: imageHeight,
                 ),
                 name: 'إلكترونيات',
@@ -404,7 +404,7 @@ class SelectTypeDialogContent extends StatelessWidget {
               child: CategoriesSliderItem(
                 horizontalMargin: 0,
                 icon: Image.asset(
-                  'assets/images/shirt.png',
+                  'assets/my_images/shirt.png',
                   height: imageHeight,
                 ),
                 name: 'ملابس',
@@ -423,7 +423,7 @@ class SelectTypeDialogContent extends StatelessWidget {
             CategoriesSliderItem(
               horizontalMargin: 0,
               icon: Image.asset(
-                'assets/images/9876 (6).png',
+                'assets/my_images/9876 (6).png',
                 height: imageHeight,
               ),
               name: 'أغراض شخصية',

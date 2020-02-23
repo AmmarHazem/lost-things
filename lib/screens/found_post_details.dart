@@ -140,7 +140,7 @@ class FoundPostDetails extends StatelessWidget {
               ),
               padding: const EdgeInsets.all(5),
               child: Image.asset(
-                'assets/images/9876 (6).png',
+                'assets/my_images/9876 (6).png',
                 width: 30,
               ),
             ),

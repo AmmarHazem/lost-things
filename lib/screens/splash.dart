@@ -34,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   Hero(
                     tag: 'logo-1',
                     child: Image.asset(
-                      'assets/images/logo.png',
+                      'assets/my_images/logo.png',
                       // height: constraints.maxHeight * 0.4,
                       width: constraints.maxWidth * 0.4,
                     ),
@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   Hero(
                     tag: 'logo-2',
                     child: Image.asset(
-                      'assets/images/iiii.png',
+                      'assets/my_images/iiii.png',
                       // height: constraints.maxHeight * 0.4,
                       width: constraints.maxWidth * 0.4,
                     ),

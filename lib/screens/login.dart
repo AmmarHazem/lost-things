@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:raneem/styles.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../styles.dart';
 
 class Login extends StatelessWidget {
   // void _showForgotPasswordDialog(BuildContext context) {
@@ -29,7 +30,7 @@ class Login extends StatelessWidget {
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           alignment: Alignment.bottomRight,
-                          image: AssetImage('assets/images/search (2).png'),
+                          image: AssetImage('assets/my_images/search (2).png'),
                         ),
                       ),
                       alignment: Alignment.center,

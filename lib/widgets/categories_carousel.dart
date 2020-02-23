@@ -8,7 +8,7 @@ class CategoriesSlider extends StatelessWidget {
     final List items = <Widget>[
       CategoriesSliderItem(
         icon: Image.asset(
-          'assets/images/9876 (6).png',
+          'assets/my_images/9876 (6).png',
           height: imageHeight,
         ),
         name: 'أغراض شخصية',
@@ -16,7 +16,7 @@ class CategoriesSlider extends StatelessWidget {
       ),
       CategoriesSliderItem(
         icon: Image.asset(
-          'assets/images/tv.png',
+          'assets/my_images/tv.png',
           height: imageHeight,
         ),
         name: 'إلكترونيات',
@@ -24,7 +24,7 @@ class CategoriesSlider extends StatelessWidget {
       ),
       CategoriesSliderItem(
         icon: Image.asset(
-          'assets/images/shirt.png',
+          'assets/my_images/shirt.png',
           height: imageHeight,
         ),
         name: 'ملابس',
@@ -32,7 +32,7 @@ class CategoriesSlider extends StatelessWidget {
       ),
       CategoriesSliderItem(
         icon: Image.asset(
-          'assets/images/car.png',
+          'assets/my_images/car.png',
           height: imageHeight,
         ),
         name: 'مواصلات',
@@ -40,7 +40,7 @@ class CategoriesSlider extends StatelessWidget {
       ),
       CategoriesSliderItem(
         icon: Image.asset(
-          'assets/images/tv.png',
+          'assets/my_images/tv.png',
           height: imageHeight,
         ),
         name: 'إلكترونيات',

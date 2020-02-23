@@ -43,7 +43,7 @@ class PostOptions extends StatelessWidget {
         ),
         Spacer(),
         Image.asset(
-          'assets/images/calendar.png',
+          'assets/my_images/calendar.png',
           width: 20,
         ),
         const SizedBox(width: 5),

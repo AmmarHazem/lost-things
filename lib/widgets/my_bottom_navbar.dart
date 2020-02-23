@@ -39,7 +39,7 @@ class MyBottomNavbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Image.asset(
-                  'assets/images/add-circular-outlined-button (1).png',
+                  'assets/my_images/add-circular-outlined-button (1).png',
                   height: 25,
                 ),
                 Text(
@@ -59,7 +59,7 @@ class MyBottomNavbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Image.asset(
-                  'assets/images/home-run.png',
+                  'assets/my_images/home-run.png',
                   height: 25,
                 ),
                 Text(
@@ -79,7 +79,7 @@ class MyBottomNavbar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Image.asset(
-                  'assets/images/envelope.png',
+                  'assets/my_images/envelope.png',
                   height: 25,
                 ),
                 Text(
@@ -103,21 +103,21 @@ class MyBottomNavbar extends StatelessWidget {
       //     BottomNavigationBarItem(
       //       title: const SizedBox(),
       //       icon: Image.asset(
-      //         'assets/images/add-circular-outlined-button (1).png',
+      //         'assets/my_images/add-circular-outlined-button (1).png',
       //         height: 25,
       //       ),
       //     ),
       //     BottomNavigationBarItem(
       //       title: const SizedBox(),
       //       icon: Image.asset(
-      //         'assets/images/home-run.png',
+      //         'assets/my_images/home-run.png',
       //         height: 25,
       //       ),
       //     ),
       //     BottomNavigationBarItem(
       //       title: const SizedBox(),
       //       icon: Image.asset(
-      //         'assets/images/envelope.png',
+      //         'assets/my_images/envelope.png',
       //         height: 25,
       //       ),
       //     ),

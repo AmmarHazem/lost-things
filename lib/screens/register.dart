@@ -47,7 +47,7 @@ class _RegisterState extends State<Register> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         alignment: Alignment.bottomRight,
-                        image: AssetImage('assets/images/search.png'),
+                        image: AssetImage('assets/my_images/search.png'),
                       ),
                     ),
                     alignment: Alignment.center,

@@ -36,7 +36,7 @@ class Raneem extends StatelessWidget {
       data: data,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'رنيم',
+        title: 'المفقودات',
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,

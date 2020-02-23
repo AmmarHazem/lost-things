@@ -98,7 +98,7 @@ class Profile extends StatelessWidget {
                                       ),
                                       padding: const EdgeInsets.all(10),
                                       child: Image.asset(
-                                        'assets/images/9876 (6).png',
+                                        'assets/my_images/9876 (6).png',
                                         width: 50,
                                       ),
                                     ),
@@ -115,7 +115,7 @@ class Profile extends StatelessWidget {
                                     if (!myProfile) Spacer(),
                                     if (!myProfile)
                                       Image.asset(
-                                        'assets/images/mail (1).png',
+                                        'assets/my_images/mail (1).png',
                                         width: 46,
                                       ),
                                     if (!myProfile) const SizedBox(width: 5),
@@ -163,7 +163,7 @@ class Profile extends StatelessWidget {
                                       child: Row(
                                         children: <Widget>[
                                           Image.asset(
-                                            'assets/images/calendar.png',
+                                            'assets/my_images/calendar.png',
                                             width: 30,
                                           ),
                                           const SizedBox(width: 5),

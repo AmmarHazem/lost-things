@@ -50,8 +50,8 @@ class _MissingPotDetailsState extends State<MissingPotDetails> {
       MissingItemSlider(
         imagePath: [
           imagePath,
-          'assets/images/pexels-photo-1031460j.jpeg',
-          'assets/images/pexels-photo-1162519.jpeg',
+          'assets/my_images/pexels-photo-1031460j.jpeg',
+          'assets/my_images/pexels-photo-1162519.jpeg',
         ],
         openDrawer: _openDrawer,
       ),
@@ -71,7 +71,7 @@ class _MissingPotDetailsState extends State<MissingPotDetails> {
               ),
               padding: const EdgeInsets.all(5),
               child: Image.asset(
-                'assets/images/9876 (6).png',
+                'assets/my_images/9876 (6).png',
                 width: 30,
               ),
             ),
@@ -225,7 +225,7 @@ class _MissingPotDetailsState extends State<MissingPotDetails> {
             const SizedBox(width: 10),
             Builder(
               builder: (cxt) => IconButton(
-                icon: Image.asset('assets/images/list (1).png'),
+                icon: Image.asset('assets/my_images/list (1).png'),
                 onPressed: () => _openDrawer(0, cxt),
               ),
             ),
@@ -280,7 +280,7 @@ class DeletePostDrawer extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   Image.asset(
-                    'assets/images/trash.png',
+                    'assets/my_images/trash.png',
                     width: 30,
                   ),
                   const SizedBox(width: 10),

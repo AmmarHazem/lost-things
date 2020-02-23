@@ -13,12 +13,12 @@ class TechnicalSupport extends StatelessWidget {
     final List<Widget> listViewItems = [
       Message(
         date: 'اليوم 11 ص',
-        imagePath: 'assets/images/help.png',
+        imagePath: 'assets/my_images/help.png',
         text: 'السلام عليكم',
       ),
       Message(
         date: 'اليوم 11 ص',
-        imagePath: 'assets/images/9876 (6).png',
+        imagePath: 'assets/my_images/9876 (6).png',
         text: 'و عليكم السلام',
         isSent: false,
       ),
@@ -47,7 +47,7 @@ class TechnicalSupport extends StatelessWidget {
         rightWidget: IconButton(
           padding: const EdgeInsets.all(0),
           icon: Image.asset(
-            'assets/images/settings (1).png',
+            'assets/my_images/settings (1).png',
             width: 25,
           ),
           onPressed: () {},
@@ -58,7 +58,7 @@ class TechnicalSupport extends StatelessWidget {
             Row(
               children: <Widget>[
                 Image.asset(
-                  'assets/images/correct (3).png',
+                  'assets/my_images/correct (3).png',
                   width: 25,
                 ),
                 const SizedBox(width: 5),
@@ -70,7 +70,7 @@ class TechnicalSupport extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(8),
                   child: Image.asset(
-                    'assets/images/help.png',
+                    'assets/my_images/help.png',
                     width: 40,
                   ),
                 ),
@@ -119,7 +119,7 @@ class TechnicalSupport extends StatelessWidget {
                     child: IconButton(
                       padding: const EdgeInsets.all(0),
                       icon: Image.asset(
-                        'assets/images/camera.png',
+                        'assets/my_images/camera.png',
                         width: 30,
                       ),
                       onPressed: () {},

@@ -13,12 +13,12 @@ class Conversation extends StatelessWidget {
     final List<Widget> listViewItems = [
       Message(
         date: 'اليوم 11 ص',
-        imagePath: 'assets/images/help.png',
+        imagePath: 'assets/my_images/help.png',
         text: 'السلام عليكم',
       ),
       Message(
         date: 'اليوم 11 ص',
-        imagePath: 'assets/images/9876 (6).png',
+        imagePath: 'assets/my_images/9876 (6).png',
         text: 'و عليكم السلام',
         isSent: false,
       ),
@@ -47,7 +47,7 @@ class Conversation extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Image.asset(
-                            'assets/images/trash.png',
+                            'assets/my_images/trash.png',
                             width: 30,
                           ),
                           const SizedBox(width: 10),
@@ -66,7 +66,7 @@ class Conversation extends StatelessWidget {
                       child: Row(
                         children: <Widget>[
                           Image.asset(
-                            'assets/images/block.png',
+                            'assets/my_images/block.png',
                             width: 30,
                           ),
                           const SizedBox(width: 10),
@@ -105,7 +105,7 @@ class Conversation extends StatelessWidget {
           builder: (cxt) => IconButton(
             padding: const EdgeInsets.all(0),
             icon: Image.asset(
-              'assets/images/settings (1).png',
+              'assets/my_images/settings (1).png',
               width: 25,
             ),
             onPressed: () => Scaffold.of(cxt).openDrawer(),
@@ -155,7 +155,7 @@ class Conversation extends StatelessWidget {
                     child: IconButton(
                       padding: const EdgeInsets.all(0),
                       icon: Image.asset(
-                        'assets/images/camera.png',
+                        'assets/my_images/camera.png',
                         width: 30,
                       ),
                       onPressed: () {},

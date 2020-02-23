@@ -1,8 +1,8 @@
 import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
-import 'package:raneem/widgets/my_appbar.dart';
-import 'package:raneem/widgets/my_bottom_navbar.dart';
 
+import '../widgets/my_appbar.dart';
+import '../widgets/my_bottom_navbar.dart';
 import '../styles.dart';
 import '../utils.dart';
 
@@ -18,7 +18,7 @@ class EditProfile extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(15),
         child: Image.asset(
-          'assets/images/9876 (6).png',
+          'assets/my_images/9876 (6).png',
           height: 50,
         ),
       ),
@@ -36,7 +36,7 @@ class EditProfile extends StatelessWidget {
       Row(
         children: <Widget>[
           Image.asset(
-            'assets/images/9876 (7).png',
+            'assets/my_images/9876 (7).png',
             height: 35,
           ),
           const SizedBox(width: 10),
@@ -57,7 +57,7 @@ class EditProfile extends StatelessWidget {
       Row(
         children: <Widget>[
           Image.asset(
-            'assets/images/9876 (7).png',
+            'assets/my_images/9876 (7).png',
             height: 35,
           ),
           const SizedBox(width: 10),
@@ -78,7 +78,7 @@ class EditProfile extends StatelessWidget {
       Row(
         children: <Widget>[
           Image.asset(
-            'assets/images/pin.png',
+            'assets/my_images/pin.png',
             height: 35,
           ),
           const SizedBox(width: 10),
@@ -99,7 +99,7 @@ class EditProfile extends StatelessWidget {
       Row(
         children: <Widget>[
           Image.asset(
-            'assets/images/9876 (1).png',
+            'assets/my_images/9876 (1).png',
             height: 35,
           ),
           const SizedBox(width: 10),

@@ -6,8 +6,8 @@ import 'widgets/share_dialog_content.dart';
 
 final animatedListOptions = LiveOptions(
   delay: Duration.zero,
-  showItemDuration: Duration(milliseconds: 50),
-  showItemInterval: Duration(milliseconds: 100),
+  showItemDuration: Duration(milliseconds: 100),
+  showItemInterval: Duration(milliseconds: 150),
   reAnimateOnVisibility: false,
 );
 

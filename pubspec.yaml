@@ -1,4 +1,4 @@
-name: raneem
+name: lost_things
 description: A new Flutter project.
 
 version: 1.0.0+1
@@ -27,7 +27,7 @@ flutter:
   uses-material-design: true
 
   assets:
-   - assets/images/
+   - assets/my_images/
    - assets/languages/
    - assets/fonts/
 

@@ -189,7 +189,7 @@ class BlockedAccount extends StatelessWidget {
 
   const BlockedAccount({
     Key key,
-    this.imagePath: 'assets/images/9876 (6).png',
+    this.imagePath: 'assets/my_images/9876 (6).png',
     @required this.name,
     @required this.username,
     @required this.onBlockedPressed,

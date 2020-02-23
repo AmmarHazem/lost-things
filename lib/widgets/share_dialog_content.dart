@@ -16,21 +16,21 @@ class ShareDialogContent extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: CategoriesSliderItem(
-                  icon: Image.asset('assets/images/instagram.png'),
+                  icon: Image.asset('assets/my_images/instagram.png'),
                   name: 'إنستاجران',
                   onTap: () {},
                 ),
               ),
               Expanded(
                 child: CategoriesSliderItem(
-                  icon: Image.asset('assets/images/facebook.png'),
+                  icon: Image.asset('assets/my_images/facebook.png'),
                   name: 'فيسبوك',
                   onTap: () {},
                 ),
               ),
               Expanded(
                 child: CategoriesSliderItem(
-                  icon: Image.asset('assets/images/snapchat.png'),
+                  icon: Image.asset('assets/my_images/snapchat.png'),
                   name: 'سناب شات',
                   onTap: () {},
                 ),
@@ -42,21 +42,21 @@ class ShareDialogContent extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: CategoriesSliderItem(
-                  icon: Image.asset('assets/images/whatsapp.png'),
+                  icon: Image.asset('assets/my_images/whatsapp.png'),
                   name: 'واتساب',
                   onTap: () {},
                 ),
               ),
               Expanded(
                 child: CategoriesSliderItem(
-                  icon: Image.asset('assets/images/twitter.png'),
+                  icon: Image.asset('assets/my_images/twitter.png'),
                   name: 'تويتر',
                   onTap: () {},
                 ),
               ),
               Expanded(
                 child: CategoriesSliderItem(
-                  icon: Image.asset('assets/images/chain.png'),
+                  icon: Image.asset('assets/my_images/chain.png'),
                   name: 'نسخ الرابط',
                   onTap: () {},
                 ),

@@ -72,7 +72,7 @@ class SearchResult extends StatelessWidget {
                     runSpacing: 5,
                     children: <Widget>[
                       Image.asset(
-                        'assets/images/search (1).png',
+                        'assets/my_images/search (1).png',
                         width: 30,
                       ),
                       SearchQuery(

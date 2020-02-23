@@ -25,7 +25,7 @@ class _SettingsState extends State<Settings> {
       context: context,
       builder: (cxt) => MyAlertDialog(
         title: Image.asset(
-          'assets/images/mail.png',
+          'assets/my_images/mail.png',
           width: 30,
         ),
         content: EditEmailDialogContent(),
@@ -38,7 +38,7 @@ class _SettingsState extends State<Settings> {
       context: context,
       builder: (cxt) => MyAlertDialog(
         title: Image.asset(
-          'assets/images/lock (1).png',
+          'assets/my_images/lock (1).png',
           width: 30,
         ),
         content: EditPasswordDialogContent(),

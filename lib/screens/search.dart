@@ -112,7 +112,7 @@ class _SearchState extends State<Search> {
               ),
               const SizedBox(height: 10),
               Image.asset(
-                'assets/images/right-arrow (1).png',
+                'assets/my_images/right-arrow (1).png',
                 width: 30,
                 height: 50,
               ),
@@ -275,7 +275,7 @@ class _SearchState extends State<Search> {
                     bottom: bottomOffset,
                     left: leftOffset,
                     child: Image.asset(
-                      'assets/images/kkjhbgv.png',
+                      'assets/my_images/kkjhbgv.png',
                       height: 150,
                     ),
                   ),
@@ -283,7 +283,7 @@ class _SearchState extends State<Search> {
                     bottom: bottomOffset,
                     left: leftOffset,
                     child: Image.asset(
-                      'assets/images/uuuuuuuuuuuuuu.png',
+                      'assets/my_images/uuuuuuuuuuuuuu.png',
                       height: 150,
                     ),
                   ),

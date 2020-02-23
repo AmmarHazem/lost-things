@@ -8,7 +8,7 @@ class OpenDrawerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Image.asset('assets/images/list (1).png'),
+      icon: Image.asset('assets/my_images/list (1).png'),
       onPressed: () => Scaffold.of(context).openDrawer(),
     );
   }

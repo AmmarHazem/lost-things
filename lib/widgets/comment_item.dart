@@ -10,7 +10,7 @@ class CommentItem extends StatelessWidget {
   const CommentItem({
     Key key,
     @required this.text,
-    this.imagePath: 'assets/images/9876 (6).png',
+    this.imagePath: 'assets/my_images/9876 (6).png',
     @required this.username,
     @required this.name,
     @required this.date,
@@ -55,7 +55,7 @@ class CommentItem extends StatelessWidget {
         Row(
           children: <Widget>[
             Image.asset(
-              'assets/images/comment (2).png',
+              'assets/my_images/comment (2).png',
               width: 30,
             ),
             const SizedBox(width: 10),

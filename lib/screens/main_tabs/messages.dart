@@ -224,7 +224,7 @@ class ConversationItem extends StatelessWidget {
     @required this.title,
     @required this.lastMessage,
     @required this.date,
-    this.imagePath: 'assets/images/9876 (6).png',
+    this.imagePath: 'assets/my_images/9876 (6).png',
     @required this.onTap,
     this.seen: true,
   }) : super(key: key);

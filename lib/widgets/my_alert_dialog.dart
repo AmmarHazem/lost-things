@@ -27,7 +27,7 @@ class MyAlertDialog extends StatelessWidget {
           title,
           IconButton(
             icon: Image.asset(
-              'assets/images/cross.png',
+              'assets/my_images/cross.png',
               width: 15,
             ), // Icon(Icons.close),
             onPressed: () => Navigator.pop(context),
