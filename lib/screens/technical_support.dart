@@ -1,6 +1,8 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 
 import '../styles.dart';
+import '../utils.dart';
 import '../widgets/message_item.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/my_appbar.dart';
@@ -89,10 +91,16 @@ class TechnicalSupport extends StatelessWidget {
               color: Colors.grey,
             ),
             Expanded(
-              child: ListView.separated(
+              child: LiveList.options(
                 reverse: true,
+                options: animatedListOptions,
                 separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-                itemBuilder: (cxt, index) => listViewItems[index],
+                itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+                  cxt,
+                  index,
+                  animation,
+                  listViewItems[index],
+                ),
                 itemCount: listViewItems.length,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 15,
@@ -158,7 +166,14 @@ class TechnicalSupport extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: MyBottomNavbar(
-        onTap: (index) {},
+        onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+          context,
+          'main',
+          (route) => false,
+          arguments: {
+            'tabIndex': index,
+          },
+        ),
         currentIndex: 1,
       ),
     );

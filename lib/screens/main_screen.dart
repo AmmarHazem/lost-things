@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
+import '../screens/main_tabs/add_post.dart';
 import '../widgets/my_bottom_navbar.dart';
 import '../widgets/my_drawer.dart';
 import 'main_tabs/home.dart';
 import 'main_tabs/messages.dart';
+import '../utils.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -18,37 +19,23 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
-
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
-    //     statusBarColor: Colors.transparent,
-    //     statusBarIconBrightness: Brightness.dark,
-    //   ),
-    // );
     _tabs = [
-      Center(
-        child: Text('Add Tab'),
-      ),
+      AddPostTab(goBack: _goBack),
       HomeTab(),
       MessagesTab(goBack: _goBack),
     ];
+
+    Future.delayed(Duration.zero, () {
+      Map<String, dynamic> args = ModalRoute.of(context).settings.arguments;
+      args = args == null ? {} : args;
+      setState(() {
+        _currentIndex = args['tabIndex'] == null ? 1 : args['tabIndex'];
+      });
+    });
   }
 
-  void _drawerOnTap(int index) {
-    if (index == 0) {
-      Navigator.pushNamed(context, 'edit-profile');
-    } else if (index == 1) {
-      Navigator.pushNamed(context, 'add-post');
-    } else if (index == 2) {
-      Navigator.pushNamed(context, 'favourites');
-    } else if (index == 3) {
-      Navigator.pushNamed(context, 'tech-support');
-    } else if (index == 4) {
-      Navigator.pushNamed(context, 'terms-and-conditions');
-    } else if (index == 5) {
-      Navigator.pushNamed(context, 'settings');
-    }
-  }
+  void _drawerOnTap(int index) =>
+      Navigator.pushNamed(context, KDrawerRoutesNames[index]);
 
   bool _goBack() {
     if (_currentIndex != 1) {
@@ -58,6 +45,10 @@ class _MainScreenState extends State<MainScreen> {
       return false;
     }
     return true;
+  }
+
+  void _bottomNavbarOnTap(int index) {
+    setState(() => _currentIndex = index);
   }
 
   @override
@@ -79,13 +70,7 @@ class _MainScreenState extends State<MainScreen> {
                 left: 0,
                 right: 0,
                 child: MyBottomNavbar(
-                  onTap: (index) {
-                    if(index == 0) {
-                      Navigator.pushNamed(context, 'add-post');
-                      return;
-                    }
-                    setState(() => _currentIndex = index);
-                  },
+                  onTap: _bottomNavbarOnTap,
                   currentIndex: _currentIndex,
                 ),
               ),

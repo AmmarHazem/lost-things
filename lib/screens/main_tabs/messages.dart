@@ -1,8 +1,10 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:raneem/utils.dart';
-import 'package:raneem/widgets/drawer_button.dart';
 
+import '../../utils.dart';
+import '../../widgets/drawer_button.dart';
+import '../../widgets/open_notifications_button.dart';
 import '../../widgets/my_alert_dialog.dart';
 import '../../widgets/section_title.dart';
 import '../../widgets/my_appbar.dart';
@@ -183,18 +185,21 @@ class MessagesTab extends StatelessWidget {
                 children: <Widget>[
                   const SizedBox(width: 10),
                   OpenDrawerButton(),
-                  IconButton(
-                    icon: Image.asset('assets/images/alarm (2).png'),
-                    onPressed: () {},
-                  ),
+                  OpenNotificationsButton(),
                 ],
               ),
               centerWidget: Text('الرسائل'),
             ),
             Expanded(
-              child: ListView.separated(
+              child: LiveList.options(
+                options: animatedListOptions,
                 separatorBuilder: (cxt, index) => const SizedBox(height: 15),
-                itemBuilder: (cxt, index) => listViewItems[index],
+                itemBuilder: (cxt, index, animation) => buildAnimatedItem(
+                  cxt,
+                  index,
+                  animation,
+                  listViewItems[index],
+                ),
                 itemCount: listViewItems.length,
                 padding: const EdgeInsets.only(top: 15, bottom: 80),
               ),

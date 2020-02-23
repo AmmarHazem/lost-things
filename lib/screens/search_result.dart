@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:raneem/widgets/missing_and_found_tabs_view.dart';
-import 'package:raneem/widgets/my_appbar.dart';
-import 'package:raneem/widgets/my_bottom_navbar.dart';
+
+import '../widgets/open_notifications_button.dart';
+import '../widgets/my_drawer.dart';
+import '../utils.dart';
+import '../widgets/drawer_button.dart';
+import '../widgets/missing_and_found_tabs_view.dart';
+import '../widgets/my_appbar.dart';
+import '../widgets/my_bottom_navbar.dart';
 
 class SearchResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(onTap: (int index) => drawerOnTap(index, -1, context)),
       appBar: MyAppBar(
         height: 50,
         leftWidget: SizedBox(
@@ -30,16 +36,8 @@ class SearchResult extends StatelessWidget {
         rightWidget: Row(
           children: <Widget>[
             const SizedBox(width: 10),
-            Builder(
-              builder: (cxt) => IconButton(
-                icon: Image.asset('assets/images/list (1).png'),
-                onPressed: () {},
-              ),
-            ),
-            IconButton(
-              icon: Image.asset('assets/images/alarm (2).png'),
-              onPressed: () {},
-            ),
+            OpenDrawerButton(),
+            OpenNotificationsButton(),
           ],
         ),
         centerWidget: Text('نتائج البحث'),
@@ -69,6 +67,7 @@ class SearchResult extends StatelessWidget {
                     vertical: 10,
                   ),
                   child: Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
                     spacing: 5,
                     runSpacing: 5,
                     children: <Widget>[
@@ -115,7 +114,14 @@ class SearchResult extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: MyBottomNavbar(
-        onTap: (index) {},
+        onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+          context,
+          'main',
+          (route) => false,
+          arguments: {
+            'tabIndex': index,
+          },
+        ),
         currentIndex: 1,
       ),
     );

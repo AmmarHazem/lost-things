@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:raneem/styles.dart';
-import 'package:raneem/widgets/my_bottom_navbar.dart';
 
+import '../widgets/open_notifications_button.dart';
+import '../styles.dart';
+import '../widgets/drawer_button.dart';
+import '../widgets/my_bottom_navbar.dart';
+import '../widgets/my_drawer.dart';
+import '../utils.dart';
 import '../widgets/missing_and_found_tabs_view.dart';
 
 class Profile extends StatelessWidget {
@@ -13,6 +17,7 @@ class Profile extends StatelessWidget {
     final bool myProfile =
         args['myProfile'] == null ? false : args['myProfile'];
     return Scaffold(
+      drawer: MyDrawer(onTap: (int index) => drawerOnTap(index, -1, context)),
       body: SafeArea(
         child: DefaultTabController(
           length: 2,
@@ -28,17 +33,9 @@ class Profile extends StatelessWidget {
                     titleSpacing: 15,
                     title: Row(
                       children: <Widget>[
-                        Builder(
-                          builder: (cxt) => IconButton(
-                            icon: Image.asset('assets/images/list (1).png'),
-                            onPressed: () => Scaffold.of(cxt).openDrawer(),
-                          ),
-                        ),
+                        OpenDrawerButton(),
                         const SizedBox(width: 10),
-                        IconButton(
-                          icon: Image.asset('assets/images/alarm (2).png'),
-                          onPressed: () {},
-                        ),
+                        OpenNotificationsButton(),
                         Spacer(),
                         SizedBox(
                           width: 60,
@@ -236,7 +233,14 @@ class Profile extends StatelessWidget {
                 right: 0,
                 bottom: 0,
                 child: MyBottomNavbar(
-                  onTap: (index) {},
+                  onTap: (index) => Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    'main',
+                    (route) => false,
+                    arguments: {
+                      'tabIndex': index,
+                    },
+                  ),
                   currentIndex: 1,
                 ),
               ),
